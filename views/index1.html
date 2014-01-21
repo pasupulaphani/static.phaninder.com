@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html class=" js no-touch svg inlinesvg svgclippaths no-ie8compat js no-touch svg inlinesvg svgclippaths no-ie8compat" lang="en" style="">
+  <head>
+    <div id="metaContent"></div>
+
+    <title>Just an another blog</title>
+
+    <link rel="stylesheet" href="./public/css/src/font.css" />
+    <link rel="stylesheet" href="./public/css/src/icon.css" />
+    <link rel="stylesheet" href="./public/css/src/foundation.css" />
+    <link rel="stylesheet" href="./public/css/src/app/app_old.css" />
+    <link rel="stylesheet" href="./public/css/src/app/offcanvas.css" />
+
+    <style>[touch-action="none"]{ -ms-touch-action: none; touch-action: none; }[touch-action="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x; }[touch-action="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y; }[touch-action="scroll"],[touch-action="pan-x pan-y"],[touch-action="pan-y pan-x"]{ -ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y; }
+    </style>
+
+    <script src="./public/js/src/vendor/custom.modernizr.js"></script>
+
+    <!--if lt IE 9-->
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+    <script>
+    tinymce.init({
+        selector: "tinymceTextarea1",
+        plugins: [
+            "advlist autolink lists link image charmap print preview anchor",
+            "searchreplace visualblocks code fullscreen",
+            "insertdatetime media table contextmenu paste"
+        ],
+        toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+    });
+    </script>
+  </head>
+  <body id="page" class="off-canvas hide-extras">
+    
+  <div class="container">
+
+    <header class="intro">
+      <div class="row">
+        <div class="two columns phone-two">
+          <h1 id="site-title"><!-- none ATM --></h1>
+        </div>
+        <div class="ten columns phone-two intro">
+          <h1>Phani Pasupula <a href="http://twitter.com/pasupulaphani">@pasupulaphani</a></h1>
+          <h2 class="hide-for-small"><span>Developer in Ruby, NodeJs enthusiast. <br>Runner, Hicker, developer.</span></h2>
+        </div>
+      </div>
+    </header>
+
+      <div id="left-nav" class="three columns phone-two hide-for-small">
+        <dl class="sub-nav">
+          <dd><a id="home" class="fi-home size-36" href="/"></a></dd>
+          <dd><!-- <a class="fi-rss size-36" href="/posts.xml">N/A</a> --></dd>
+        </dl>
+      </div>
+
+      <div id="header-nav" class="six columns phone-two">
+        <dl class="sub-nav">
+          <dd title="About">
+            <a href="/about"><img src="images/about-icon.jpg"/><span>About</span></a>
+          </dd>
+          <dd title="Posts">
+            <a class="fi-page-multiple size-36" href="/posts">  </a>
+            <a href="/posts"><span>Posts</span></a>
+          </dd>
+          <!-- <dd><a class="fi-page-search size-36" href="/"></a></dd> -->
+          <dd>
+            <a class="fi-page-search size-36" id="sidebarButton" href="#sidebar"></a>
+          </dd>
+        </dl>
+      </div>
+
+
+    <div class="row">
+      <section role="main">
+        <div id="post" class="row">
+        <tinymceTextarea name="content" style="width:100%; height:400px">
+          <div class="eight columns">
+
+            <h1>Hi</h1>
+<a href="#" class="button split">Split Button <span data-dropdown="drop"></span></a><br>
+<ul id="drop" class="f-dropdown" data-dropdown-content>
+  <li><a href="#">This is a link</a></li>
+  <li><a href="#">This is another</a></li>
+  <li><a href="#">Yet another</a></li>
+</ul>
+            <p>Computer Science and Engineering post-graduate working in London. Started my career working for Sapient Ltd, a Global Technology and Business Consultancy until joining News International in their Digital Engineering team. Technology Lead at Financial Times during the day these days.</p>
+
+            <p>Cricket and Basketball enthusiast, can often be found at a hackathon, tech meetup or a pub in the city when not hanging out with friends.</p>
+
+            <figure class="focal-point center">
+              <div class="center"><img src="http://local-sites.com/036.jpg" alt=""></div>
+              <figcaption>Hiking around West Cornwall, Lamorna Cove</figcaption>
+            </figure>
+
+            <code data-gist-id="7386757" data-gist-hide-footer="false" data-gist-line="0-41" ></code>
+            <!-- <div><img src="http://local-sites.com/036.jpg" alt=""></div> -->
+            <p>Predominantly from a Java background with expertise in Enterprise Application Design, Development, Performance tuning, Content Management Systems and Enterprise Search Platforms. Also enjoy mobile and tablet application development with experience in iOS application development.</p>
+          </div>
+        </div>
+        </tinymceTextarea>
+      </section>
+
+    </div>
+
+    <div class="row">
+      <section role="main">
+        <div id="post" class="row">
+          <div class="eight columns">
+            <h1>Find me at</h1>
+            <ul class="inline-list">
+              <li><a class="webicon github large" href="https://github.com/pasupulaphani">Github</a></li>
+              <li><a class="webicon linkedin large" href="http://www.linkedin.com/pub/phaninder-pasupula/2b/4a0/aab">Linkedin</a></li>
+              <li><a class="webicon facebook large" href="#">Facebook</a></li>
+              <li><a class="webicon twitter large" href="http://twitter.com/pasupulaphani">Twitter</a></li>
+            </ul>
+
+          </div>
+        </div>
+      </section>
+
+    </div>
+    <!-- <div id="postContent"></div> -->
+    <!-- <div id="aboutContent"></div> -->
+
+
+    <div id="footerContent"></div>
+
+  </div>
+    
+    <script src="./public/js/src/vendor//jquery.js"></script>
+    <script src="./public/js//foundation.min.js"></script>
+    <script src="./public/js/src/app/my.app.js"></script>
+    <script src="./public/js/src/app/my.offcanvas.js"></script>
+    <script src="./public/js/src/app/my.placeholder.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+    <script> 
+    $(function(){
+      $("#metaContent").load("meta.html");
+      $("#headerContent").load("header.html");
+      $("#footerContent").load("footer.html");
+      $("#postContent").load("post.html");
+      //$("#aboutContent").load("about.html");
+    });
+  </script> 
+  </body>
+</html>
