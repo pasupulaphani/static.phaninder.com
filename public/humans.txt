@@ -1,15 +1,11 @@
-# humanstxt.org/
-# The humans responsible & technology colophon
+/* TEAM */
+    Developer: Phaninder Pasupula
+    URL: http://phaninder.com
+    Twitter: @pasupulaphani
+    Contact: hello [at] phaninder.com
 
-# TEAM
 
-    <name> -- <role> -- <twitter>
-
-# THANKS
-
-    <name>
-
-# TECHNOLOGY COLOPHON
-
-    HTML5, CSS3
-    jQuery, Modernizr
+/* SITE */
+    Language: English
+    Doctype: HTML5
+    Software: NodeJs, MongoDB, Angular, Sublime

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml" itemscope="itemscope" itemtype="http://schema.org/Product" class="js no-touch svg inlinesvg svgclippaths no-ie8compat 		js no-touch svg inlinesvg svgclippaths no-ie8compat">
+
+  <head>
+    <!-- <div id="metaContent"></div> -->
+
+    <title>Just an another blog</title>
+
+    <link rel="stylesheet" href="./public/css/src/foundation.css" />
+    <link rel="stylesheet" href="./public/css/src/font.css" />
+    <link rel="stylesheet" href="./public/css/src/icon.css" />
+    <link rel="stylesheet" href="./public/css/src/app/app.css" />
+    <link rel="stylesheet" href="./public/css/src/app/offcanvas.css" />
+
+    <style>[touch-action="none"]{ -ms-touch-action: none; touch-action: none; }[touch-action="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x; }[touch-action="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y; }[touch-action="scroll"],[touch-action="pan-x pan-y"],[touch-action="pan-y pan-x"]{ -ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y; }
+    </style>
+
+    <script src="./public/js/src/vendor/custom.modernizr.js"></script>
+
+    <!--if lt IE 9-->
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  </head>
+
+	<body id="page" class="off-canvas hide-extras">
+		<div class="container">
+
+		<!-- <div id="topbarContent"></div> -->
+			<nav class="top-bar" data-topbar>
+				<ul class="title-area">
+					<li class="name"></li>
+					<li class="toggle-topbar menu-icon"><a href=""><span>Menu</span></a></li>
+				</ul>
+        <section class="top-bar-section">
+			    <ul class="right">
+            <li class="has-dropdown"><a href="#">Posts</a>
+	            <ul class="dropdown">
+	                <li><a href="/posts?status=T">Trashed</a>
+	                </li>
+	                <li><a href="/posts?status=U">Under construction</a>
+	                </li>
+	                <li><a href="/posts?status=Y">Displayed</a>
+	                </li>
+	            </ul>
+	          </li>
+            <li class="has-form">
+                <a href="/posts/new" value="New Post" class="button expand">New Post</a>
+            </li>
+	          <li class="has-form">
+	              <a href="/logout" value="Logout" class="alert button expand">Logout</a>
+	          </li>
+			    </ul>
+			  </section>
+			</nav>
+		<div id="headerContent"></div>
+		<div id="headernavContent"></div>
+
+		<div class="row">
+			<section role="main">
+				<div id="post" class="row">
+					<div class="large-8 columns">
+						<h1>rather a n:m relationship. In that case I would recommend you to add an array</h1>
+
+						<p>Having a reference from the employee to the company is a good idea. But you should consider using not the _id field of the company, but rather the company name and the branch name, as long as you can guarantee each combination of them to be unique in the company collection (like with an unique compound index on these two fields). The reason is that when you look up an employee, you will usually also want the name of the companies and the branches. When you would only have _id's, you would have to do additional queries to get that information. You said you don't have a 1:n relation between branches and employees, but rather a n:m relationship. In that case I would recommend you to add an array of &quot;assignments&quot; to each employee, which contains objects with two fields, company_name and company_branch (maybe you would like to add a third field &quot;position&quot; which says what he or she is doing there).</p>
+						<span>Wed, 11 Dec 2013 00:06:20 GMT</span>
+						<p>by pp@pp.pp</p>
+						<!-- delete should never be used-->
+						<section id="set-status">
+							<script>
+							function setPostStatus(state) {
+								document.postStatusForm.status.value = state;
+								document.postStatusForm.submit();
+							}
+							</script>
+							<form name="postStatusForm" action="/posts/rather-a-nm-relationship-in-that-case-i-would-recommend-you-to-add-an-array/status" method="post">
+								<input type="hidden" id="status" name="status" value="">
+							</form>
+							<dl class="sub-nav">
+
+								<dt class="h5">Move to:
+									<dd><a onclick="setPostStatus('U')" href="javascript: void()">Under construction</a>
+									</dd>
+									<dd class="active"><a>Display</a>
+									</dd>
+									<dd><a onclick="setPostStatus('T')" href="javascript: void()">Trash</a>
+									</dd>
+								</dt>
+							</dl>
+						</section>
+						<section id="post-edit"><a href="/posts/rather-a-nm-relationship-in-that-case-i-would-recommend-you-to-add-an-array/edit" class="button">Edit Post</a>
+						</section>
+<a href="#" class="button split">Split Button <span data-dropdown="drop"></span></a><br>
+<ul id="drop" class="f-dropdown" data-dropdown-content>
+  <li><a href="#">This is a link</a></li>
+  <li><a href="#">This is another</a></li>
+  <li><a href="#">Yet another</a></li>
+</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+		<div class="row">
+			<section role="findme">
+				<div id="findme" class="row">
+					<div class="eight columns">
+						<h1>Find me at</h1>
+						<ul class="inline-list">
+							<li><a href="https://github.com/pasupulaphani" class="webicon github large">Github</a>
+							</li>
+							<li><a href="http://www.linkedin.com/pub/phaninder-pasupula/2b/4a0/aab" class="webicon linkedin large">Linkedin</a>
+							</li>
+							<li><a href="#" class="webicon facebook large">Facebook</a>
+							</li>
+							<li><a href="http://twitter.com/pasupulaphani" class="webicon twitter large">Twitter</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+		<footer id="site-footer" role="contentinfo" class="row clearfix">
+			<div class="ten columns phone-two">
+				<ul class="inline-list">
+					<li><a href="/" title="Home">Home</a>
+					</li>
+					<li><a href="/about" title="About">About</a>
+					</li>
+					<li><a href="/posts" title="Posts">Posts</a>
+					</li>
+					<li><a href="/contact" title="Contact" class="email">Contact</a>
+					</li>
+					<li><a href="http://twitter.com/pasupulaphani">@pasupulaphani</a>
+					</li>
+				</ul>
+			</div>
+			<a href="#" title="Back to the top" class="fi-arrow-up size-24 footer-back-up"></a>
+		</footer>
+	</div>
+
+  <script src="./public/js/src/vendor//jquery.js"></script>
+  <script src="./public/js//foundation.min.js"></script>
+  <script src="./public/js/src/foundation/foundation.interchange.js"></script>
+  <script src="./public/js/src/app/my.app.js"></script>
+  <script src="./public/js/src/app/my.offcanvas.js"></script>
+  <script src="./public/js/src/app/my.placeholder.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+  <script> 
+	  $(function(){
+	    $("#metaContent").load("meta.html");
+	    $("#topbarContent").load("topbar.html");
+	    $("#headerContent").load("header.html");
+	    $("#headernavContent").load("headernav.html");
+	    $("#footerContent").load("footer.html");
+	    $("#postContent").load("post.html");
+	    //$("#aboutContent").load("about.html");
+	  });
+  </script> 
+</body>
+
+</html>

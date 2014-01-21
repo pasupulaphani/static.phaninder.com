@@ -1,4 +1,9 @@
 static.phaninder.com
 ====================
 
-node-static/Static file server for phaninder.com
+Static file server for phaninder.com
+
+Modules:
+node-static
+grunt
+jasmine

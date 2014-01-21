@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/pasupulaphani/static.phaninder.com",
   "dependencies": {
+    "node-static": "~0.7.3"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
