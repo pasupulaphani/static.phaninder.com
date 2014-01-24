@@ -8,7 +8,8 @@ set :ssh_options, {
   user: 'deploy',
   forward_agent: true
 }
-set :pty, false
+set :pty, true
+set :use_sudo, true
 
 set :deploy_to, '/var/www/static.phaninder.com'
 set :branch, 'master'
