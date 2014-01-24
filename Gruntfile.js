@@ -11,7 +11,7 @@ module.exports = function(grunt) {
 		minCssFile: 'main.min.css',
 
 		// Allows us to reference properties we declared in package.json.
-		pkg: grunt.file.readJSON('package.json'),
+		pkg: grunt.file.readJSON('public/dev-dependencies.json'),
 
 		concat: {
 			options: {
