@@ -1,3 +1,5 @@
+require_relative './mytasks'
+
 # config valid only for Capistrano 3.1
 lock '3.1.0'
 
@@ -23,6 +25,7 @@ set :log_level, :debug
 
 set :keep_releases, 5
 
+
 namespace :deploy do
 
   desc 'Restart nginx'
@@ -34,4 +37,6 @@ namespace :deploy do
   end
 
   after :finishing, 'deploy:restart', 'deploy:cleanup'
+  before :deploy, 'grunt:build'
+  before :deploy, 'git:commit'
 end
