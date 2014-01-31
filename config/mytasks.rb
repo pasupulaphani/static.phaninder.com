@@ -27,7 +27,7 @@ namespace :git do
 		puts "Committing local changes"
 		puts "Enter commit message \n"
 		#set(:meg, Capistrano::CLI.ui.ask("Enter commit message: ") )
-		ask :msg, proc {`git rev-parse --abbrev-ref HEAD`.chomp}
+		ask :msg, proc {gets.chomp}
    	run_local("git commit -m #{:msg}")
  
     # Check we are on the master branch, so we can't forget to merge before deploying
