@@ -27,9 +27,8 @@ namespace :git do
 		puts "Committing local changes"
 		puts "Enter commit message \n"
 		#set(:meg, Capistrano::CLI.ui.ask("Enter commit message: ") )
-		#ask :msg, gets.chomp
-		msg = STDIN.gets.chomp rescue nil
-   	run_local("git commit -m '#{msg}'")
+		ask :msg, STDIN.gets.chomp rescue nil
+   	run_local("git commit -m '#{:msg}'")
  
     # Check we are on the master branch, so we can't forget to merge before deploying
     branch = %x(git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \\(.*\\)/\\1/').chomp
