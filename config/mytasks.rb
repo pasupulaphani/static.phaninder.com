@@ -31,13 +31,16 @@ namespace :git do
  
     # Check we are on the master branch, so we can't forget to merge before deploying
     branch = %x(git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \\(.*\\)/\\1/').chomp
+   	puts "\nOn branch : #{branch}"
     if branch != "master" && ENV["CHECK_BRANCH"]
       raise Capistrano::Error, "Not on master branch (set CHECK_BRANCH=0 to ignore)"
     end
-puts "#{fetch(:repository)} ..............................................................."
+
     # Push the changes
-    if ! system "git push #{fetch(:repository)} #{branch}"
-      raise Capistrano::Error, "Failed to push changes to #{fetch(:repository)}"
+    remote = "origin"
+    puts "\nGit push branch #{branch} to remote #{remote}"
+    if ! system "git push #{remote} #{branch}"
+      raise Capistrano::Error, "Failed to push changes to remote #{remote}"
     end
 	end
 end
