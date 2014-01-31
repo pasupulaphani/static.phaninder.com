@@ -34,9 +34,9 @@ namespace :git do
     if branch != "master" && ENV["CHECK_BRANCH"]
       raise Capistrano::Error, "Not on master branch (set CHECK_BRANCH=0 to ignore)"
     end
-
+puts "#{fetch(:repository)} ..............................................................."
     # Push the changes
-    if ! system "git push #{fetch(:repository)} master"
+    if ! system "git push #{fetch(:repository)} #{branch}"
       raise Capistrano::Error, "Failed to push changes to #{fetch(:repository)}"
     end
 	end
