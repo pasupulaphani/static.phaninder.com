@@ -216,7 +216,7 @@ text-align: center;
 
 [role="main"]:before { content: " "; position: absolute; z-index: -1; top: 0; left: -100%; width: 100%; height: 100%; }
 
-[role="complementary"], [role="main"], [role="findme"] { width: 100%; padding: 0 15px; display: block; position: relative; z-index: 1; -webkit-transition: 0.25s all ease-in; -moz-transition: 0.25s all ease-in; -o-transition: 0.25s all ease-in; transition: 0.25s all ease-in; }
+[role="complementary"], [role="main"], [role="findme"] { width: 100%; padding: 0 15px; display: block; position: relative; -webkit-transition: 0.25s all ease-in; -moz-transition: 0.25s all ease-in; -o-transition: 0.25s all ease-in; transition: 0.25s all ease-in; }
 
 .paneled [role="main"] { padding: 0; }
 
