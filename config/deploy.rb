@@ -36,6 +36,13 @@ namespace :deploy do
     end
   end
 
+  desc "Install node modules non-globally"
+  task :npm_install do
+    on roles(:web) do
+      execute "cd #{current_path} && npm install"
+    end
+  end
+
   after :finishing, 'deploy:restart', 'deploy:cleanup'
   before :deploy, 'grunt:build'
   before :deploy, 'git:commit'
