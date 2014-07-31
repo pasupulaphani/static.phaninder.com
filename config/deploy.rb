@@ -12,7 +12,7 @@ set :ssh_options, {
 }
 set :pty, true
 set :use_sudo, true
-
+set :password, ask('Server password:', nil)
 set :deploy_to, '/var/www/static.phaninder.com'
 set :branch, 'master'
 set :scm, :git
