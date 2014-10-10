@@ -21,14 +21,16 @@ namespace :git do
     status = %x(git status --porcelain).chomp
    	puts "\nLocal git status : #{status}"
 
-   	puts "\nChanges stagged"
-   	status = %x(git add . )
+    if status != ""
+     	puts "\nChanges stagged"
+     	status = %x(git add . )
 
-		puts "\nCommitting local changes"
-		puts "\nEnter commit message :"
-		msg = STDIN.gets.chomp rescue nil
-   	run_local("git commit -m '#{msg}'")
- 
+  		puts "\nCommitting local changes"
+  		puts "\nEnter commit message :"
+  		msg = STDIN.gets.chomp rescue nil
+     	run_local("git commit -m '#{msg}'")
+    end
+    
     # Check we are on the master branch, so we can't forget to merge before deploying
     branch = %x(git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \\(.*\\)/\\1/').chomp
    	puts "\nOn branch : #{branch}"
