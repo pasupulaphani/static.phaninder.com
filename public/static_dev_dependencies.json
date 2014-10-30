@@ -3,7 +3,8 @@
     "public/js/src/foundation.min.js",
     "public/js/src/app/my.app.js",
     "public/js/src/app/my.offcanvas.js",
-    "public/js/src/app/my.placeholder.js"
+    "public/js/src/app/my.placeholder.js",
+    "public/js/src/app/my.utils.js"
   ],
   "staticCSSDependencies": [
     "public/css/src/foundation.css",

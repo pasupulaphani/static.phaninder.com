@@ -302,4 +302,17 @@ e.scale!==1)return;var t=l.data("swipe-transition");typeof t=="undefined"&&(t={}
 		}
 	}
 
-}(this, document, jQuery));
+}(this, document, jQuery));;Date.prototype.mmddyyyy = function() {
+
+    var yyyy = this.getFullYear().toString();
+    var mm = (this.getMonth() + 1).toString(); // getMonth() is zero-based
+    var dd = this.getDate().toString();
+    return  (mm[1] ? mm : "0" + mm[0]) + '/' + (dd[1] ? dd : "0" + dd[0]) + '/' + yyyy; // padding
+
+};
+
+var fomatDate = function (gmt_string) {
+
+	var date = new Date(gmt_string);
+	return date.mmddyyyy();
+}
