@@ -1,0 +1,11 @@
+/* TEAM */
+    Developer: Phaninder Pasupula
+    URL: http://phaninder.com
+    Twitter: @pasupulaphani
+    Contact: hello [at] phaninder.com
+
+
+/* SITE */
+    Language: English
+    Doctype: HTML5
+    Software: NodeJs, MongoDB, Angular

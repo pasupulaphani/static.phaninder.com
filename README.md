@@ -1,0 +1,1 @@
+[![Build Status](https://secure.travis-ci.org/pasupulaphani/static.phaninder.com.png?branch=master)](http://travis-ci.org/pasupulaphani/static.phaninder.com)
