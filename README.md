@@ -1,10 +1,1 @@
-static.phaninder.com
-====================
-
-* Static file server for phaninder.com
-* a coolieless subdomain to static files
-
-Modules:
-* node-static
-* grunt
-* jasmine
+[![Build Status](https://secure.travis-ci.org/pasupulaphani/static.phaninder.com.png?branch=master)](http://travis-ci.org/pasupulaphani/static.phaninder.com)
