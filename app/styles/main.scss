@@ -388,3 +388,48 @@ table.show-for-xlarge, table.show-for-large, table.hide-for-small, table.hide-fo
   padding: 0.2em 0;
 }
 
+.tweet-button {
+  background-image: url(http://static.phaninder.com/images/twitter-bird-sprite-small.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+  padding: 7px 0 7px 40px;
+  right: -168px;
+  top: 5px;
+  -webkit-transition: right 0.3s;
+  -moz-transition: right 0.3s;
+  transition: right 0.3s;
+}
+
+.tweet-button:hover {-webkit-animation: fly 0.2s steps(4) 0 10;
+  -moz-animation: fly 0.2s steps(4) 0 10;
+  animation: fly 0.2s steps(4) 0 10;
+  right: 0;
+}
+
+@-webkit-keyframes fly {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 -140px;
+  }
+}
+
+@-moz-keyframes fly {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 -140px;
+  }
+}
+
+@keyframes fly {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 -140px;
+  }
+}

@@ -11,7 +11,7 @@
     "angular-route": "~1.3.2",
     "foundation": "~5.4.7",
     "foundation-icon-fonts": "zurb/foundation-icon-fonts",
-    "angular-socialsharing": "~0.0.7",
+    "angular-socialsharing": "~0.1.0",
     "marked": "~0.3.2"
   },
   "devDependencies": {
@@ -20,6 +20,7 @@
   },
   "appPath": "app",
   "resolutions": {
-    "angular": "~1.3.2"
+    "angular": "~1.3.2",
+    "angular-socialsharing": "~0.1.0"
   }
 }

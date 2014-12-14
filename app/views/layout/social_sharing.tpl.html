@@ -4,21 +4,42 @@
             <h3>Share this post</h3>
             <ul id="shareposticons" class="inline-list slideExpandUp">
                 <li>
-                    <a class="twitter-share-button" href="#"></a>
-                </li>
-                <li>
-                    <div class="g-plus" </div>
+                    <div data-annotation='none' data-href="{{site.url}}" class="g-plus" data-action="share"></div>
                 </li>
                 <li style="margin-top: -2px;">
-                    <div class="fb-share-button"></div>
+                    <div class="fb-share-button" data-href="{{site.url}}" data-layout="button"></div>
                 </li>
                 <li>
-                    <div class="g-plusone"></div>
+                    <div class="g-plusone" data-href="{{site.url}}" data-annotation='none' data-size='medium' data-width='300'></div>
                 </li>
-                <li>
-                    <div class="fb-like"></div>
+                <li style="margin-top: -2px;">
+                    <div class="fb-like" data-href="{{site.url}}" data-layout='button_count' data-action='like' data-show-faces='true' data-share='false'></div>
+                </li>
+                <li style="margin-top: -6px;">
+                    <div class="tweet-button" ng-click="share.twt()">
+                        <a>Tweet</a>
+                    </div>
                 </li>
             </ul>
         </div>
     </div>
 </section>
+<script type="text/javascript">
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    // if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=515239655250335";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+//- google+ like and share
+(function() {
+    var po = document.createElement('script');
+    po.type = 'text/javascript';
+    po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+})();
+</script>
