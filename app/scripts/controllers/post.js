@@ -19,7 +19,7 @@ angular.module('angappApp')
                 utils.markUp($scope.posts);
 
                 // instead use route resolve
-                $location.path('/posts/' + $scope.posts[0]._id + '/' + $scope.posts[0].seo_url)
+                $location.path('/posts/' + $scope.posts[0]._id + '/' + $scope.posts[0].seo_url);
             });
 
             $scope.share = {

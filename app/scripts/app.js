@@ -19,14 +19,14 @@ angular
 
 .constant('restEndPoint', 'http://localhost:3000')
 
-.run(function($rootScope) {
+.run(function($rootScope, $window) {
 
     // initialize foundation
-    Foundation.global.namespace = '';
-    $(document).foundation();
+    $window.Foundation.global.namespace = '';
+    $window.$(document).foundation();
 
     $rootScope.site = {
-        name: "phaninder.com",
+        name: 'phaninder.com',
         url: encodeURIComponent(document.URL),
         short_url: document.URL
     };

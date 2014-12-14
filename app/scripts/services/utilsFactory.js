@@ -10,14 +10,14 @@
 angular.module('angappApp')
     .factory(
         'utils',
-        function() {
+        function($window) {
 
             var markUp = function(posts) {
                 angular.forEach(posts, function(post) {
-                    post.preface = marked(post.preface || '');
-                    post.body = marked(post.body || '');
+                    post.preface = $window.marked(post.preface || '');
+                    post.body = $window.marked(post.body || '');
                 });
-            }
+            };
 
             // Public API here
             return {
