@@ -24,7 +24,6 @@ header.intro {
     width: 100%;
     line-height: 1.4;
     border-bottom: 1px solid #eee;
-    padding: 10px 0;
     background: #f3f3f3;
     color: #57626b;
     font-size: 100%;
@@ -121,6 +120,12 @@ form #post-search-input {
     -o-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.75), inset 0 2px 4px rgba(0, 0, 0, 0.1);
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.75), inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+.posts .article {
+    border-bottom: 1px solid #ddd;
+    margin: 0 0 1.625em;
+    padding: 0.625em 0 1.625em 0;
+    position: relative;
+}
 .posts h2 {
     font-size: 24px;
 }
@@ -129,12 +134,6 @@ form #post-search-input {
     background: #fff;
     position: relative;
     padding: 5px 10px;
-    border: 1px solid #ccc;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
-    -o-border-radius: 3px;
-    border-radius: 3px;
     display: inline-block;
     text-decoration: none!important;
 }
@@ -142,6 +141,14 @@ form #post-search-input {
     margin: 0.75em 0;
     padding: 0 1em;
     list-style: none;
+}
+.posts img {
+    height: 200px;
+    border: 15px solid whitesmoke;
+    max-width: 100%;
+    padding: 0;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    width: 630px;
 }
 .posts li:before {
     content: "";
