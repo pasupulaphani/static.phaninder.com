@@ -16,15 +16,15 @@ angular.module('myWebApp')
                     password: $scope.password
                 })
                 .then(function() {
-                    $log.warn("logged in successfully")
+                    $log.warn('logged in successfully');
                 })
                 .catch(function(response) {
-                    $log.warn("log in failed")
-                    $log.warn(response)
+                    $log.warn('log in failed');
+                    $log.warn(response);
                 });
         };
 
         $scope.authenticate = function(provider) {
-            $log.warn("authenticate " + provider)
+            $log.warn("authenticate " + provider);
         };
     });
