@@ -1,7 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml" itemscope="itemscope" itemtype="http://schema.org/Blog" class="no-js no-touch svg inlinesvg svgclippaths no-ie8compat" ng-app="angappApp">
-
-<!-- <head class="intro" ng-include="'views/layout/head.tpl.html'"></head> -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml" itemscope="itemscope" itemtype="http://schema.org/Blog" class="no-js no-touch svg inlinesvg svgclippaths no-ie8compat" ng-app="myWebApp" ng-cloak>
 
 <head class="intro">
     <meta charset="utf-8">
@@ -10,7 +8,7 @@
     <meta http-equiv="cleartype" content="on">
     <meta http-equiv="x-dns-prefetch-control" content="off">
 
-    <title>{{site.name}}</title>
+    <title ng-bind="site.name">phaninder.com</title>
 
     <link type="text/plain" rel="author" href="/humans.txt">
     <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico'>
@@ -130,6 +128,7 @@
     <script src="scripts/services/utilsFactory.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/post.js"></script>
+    <script src="scripts/controllers/login.js"></script>
     <!-- endbuild -->
 </body>
 

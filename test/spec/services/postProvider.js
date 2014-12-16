@@ -3,7 +3,7 @@
 describe('Service: post', function () {
 
   // load the service's module
-  beforeEach(module('angappApp'));
+  beforeEach(module('myWebApp'));
 
   // instantiate service
   var post;

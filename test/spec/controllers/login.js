@@ -1,22 +1,22 @@
 'use strict';
 
-describe('Controller: PostCtrl', function () {
+describe('Controller: LoginCtrl', function () {
 
   // load the controller's module
   beforeEach(module('myWebApp'));
 
-  var PostCtrl,
+  var LoginCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    PostCtrl = $controller('PostCtrl', {
+    LoginCtrl = $controller('LoginCtrl', {
       $scope: scope
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(3).toBe(3);
+  it('should have login method', function () {
+    expect(scope.login).toBeDefined();
   });
 });

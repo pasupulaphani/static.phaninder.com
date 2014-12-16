@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc service
- * @name angappApp.postProvider
+ * @name myWebApp.postProvider
  * @description
  * # postProvider
- * Provider in the angappApp.
+ * Provider in the myWebApp.
  */
-angular.module('angappApp')
+angular.module('myWebApp')
   .provider(
     'post',
     function () {

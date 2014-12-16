@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name angappApp
+ * @name myWebApp
  * @description
- * # angappApp
+ * # myWebApp
  *
  * Main module of the application.
  */
 angular
-    .module('angappApp', [
+    .module('myWebApp', [
         'ngResource',
         'ngRoute',
         'ngSanitize',
@@ -55,6 +55,10 @@ angular
         .when('/contact', {
             templateUrl: 'views/post.html',
             controller: 'ContactCtrl'
+        })
+        .when('/login', {
+            templateUrl: 'views/login.html',
+            controller: 'LoginCtrl'
         })
         .otherwise({
             redirectTo: '/posts'

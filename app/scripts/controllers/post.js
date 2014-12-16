@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name angappApp.controller:AboutCtrl
+ * @name myWebApp.controller:AboutCtrl
  * @description
  * # AboutCtrl
- * Controller of the angappApp
+ * Controller of the myWebApp
  */
-angular.module('angappApp')
+angular.module('myWebApp')
     .controller(
         'PostCtrl',
         function($scope, $routeParams, $location, post, utils, $twt) {

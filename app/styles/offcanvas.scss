@@ -451,3 +451,25 @@ dt.h5 {
     font-size: 17px;
     font-weight: bold !important;
 }
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+.center-form {
+    width: 330px;
+    margin: 6% auto;
+}
+.panel-body {
+    padding: 15px;
+}
+.panel-body .button,.panel-body input {
+    width: 100%;
+}
+.button-github {
+    color: #fff;
+    background-color: #444;
+    border: 1px solid #3b3b3b;
+}
+.button-github:hover, .button-github:focus {
+    color: #fff;
+    background-color: #303030;
+}

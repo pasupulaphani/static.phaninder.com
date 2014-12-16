@@ -3,7 +3,7 @@
 describe('Service: utils', function () {
 
   // load the service's module
-  beforeEach(module('angappApp'));
+  beforeEach(module('myWebApp'));
 
   // instantiate service
   var utils;

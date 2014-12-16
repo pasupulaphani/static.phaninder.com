@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc service
- * @name angappApp.utilsFactory
+ * @name myWebApp.utilsFactory
  * @description
  * # utilsFactory
- * Factory in the angappApp.
+ * Factory in the myWebApp.
  */
-angular.module('angappApp')
+angular.module('myWebApp')
     .factory(
         'utils',
         function($window) {
