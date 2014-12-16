@@ -8,8 +8,23 @@
  * Controller of the myWebApp
  */
 angular.module('myWebApp')
-  .controller('LoginCtrl', function ($scope, $log) {
-    $scope.login = function (argument) {
-    	$log.warn("login clicked")
-    }
-  });
+    .controller('LoginCtrl', function($scope, $log, $http, restEndPoint) {
+
+        $scope.login = function() {
+            $http.post(restEndPoint + '/login', {
+                    email: $scope.email,
+                    password: $scope.password
+                })
+                .then(function() {
+                    $log.warn("logged in successfully")
+                })
+                .catch(function(response) {
+                    $log.warn("log in failed")
+                    $log.warn(response)
+                });
+        };
+
+        $scope.authenticate = function(provider) {
+            $log.warn("authenticate " + provider)
+        };
+    });

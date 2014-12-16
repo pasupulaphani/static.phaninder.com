@@ -19,4 +19,9 @@ describe('Controller: LoginCtrl', function () {
   it('should have login method', function () {
     expect(scope.login).toBeDefined();
   });
+
+  it('should have login method', function () {
+    expect(scope.authenticate).toBeDefined();
+  });
+
 });
