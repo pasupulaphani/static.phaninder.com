@@ -17,7 +17,7 @@ angular
         'socialsharing'
     ])
 
-.constant('restEndPoint', 'http://localhost:3000')
+.constant('restEndPoint', 'http://api.local-phaninder.com')
 
 .run(function($rootScope, $window) {
 
@@ -38,7 +38,10 @@ angular
     };
 })
 
-.config(function($routeProvider, $fbProvider, $twtProvider) {
+.config(function($httpProvider, $routeProvider, $fbProvider, $twtProvider) {
+
+    $httpProvider.defaults.withCredentials = true;
+
     $routeProvider
         .when('/posts', {
             templateUrl: 'views/main.html',

@@ -12,6 +12,7 @@ angular.module('myWebApp')
 
         $scope.login = function() {
             $http.post(restEndPoint + '/login', {
+                    withCredentials: true,
                     email: $scope.email,
                     password: $scope.password
                 })
@@ -25,6 +26,6 @@ angular.module('myWebApp')
         };
 
         $scope.authenticate = function(provider) {
-            $log.warn("authenticate " + provider);
+            $log.warn('authenticate ' + provider);
         };
     });
