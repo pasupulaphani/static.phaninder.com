@@ -11,6 +11,7 @@
 angular
     .module('myWebApp', [
         'ngResource',
+        'ngCookies',
         'ngRoute',
         'ngSanitize',
         'ngTouch',
@@ -40,7 +41,11 @@ angular
 
 .config(function($httpProvider, $routeProvider, $fbProvider, $twtProvider) {
 
+    // for sharing cookies... with cross origin requests
     $httpProvider.defaults.withCredentials = true;
+
+    // set csrf for cross origin requests
+    $httpProvider.interceptors.push('myCSRF');
 
     $routeProvider
         .when('/posts', {

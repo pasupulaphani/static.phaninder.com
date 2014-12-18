@@ -8,16 +8,16 @@
  * Controller of the myWebApp
  */
 angular.module('myWebApp')
-    .controller('LoginCtrl', function($scope, $log, $http, restEndPoint) {
+    .controller('LoginCtrl', function($scope, $log, $http, $location, restEndPoint) {
 
         $scope.login = function() {
             $http.post(restEndPoint + '/login', {
-                    withCredentials: true,
                     email: $scope.email,
                     password: $scope.password
                 })
                 .then(function() {
-                    $log.warn('logged in successfully');
+                    $log.info('logged in successfully');
+                    $location.path('/posts');
                 })
                 .catch(function(response) {
                     $log.warn('log in failed');
