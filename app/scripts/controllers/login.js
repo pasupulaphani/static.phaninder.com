@@ -8,20 +8,12 @@
  * Controller of the myWebApp
  */
 angular.module('myWebApp')
-    .controller('LoginCtrl', function($scope, $log, $http, $location, restEndPoint) {
+    .controller('LoginCtrl', function($scope, $log, $location, auth) {
 
         $scope.login = function() {
-            $http.post(restEndPoint + '/login', {
-                    email: $scope.email,
-                    password: $scope.password
-                })
-                .then(function() {
-                    $log.info('logged in successfully');
-                    $location.path('/posts');
-                })
-                .catch(function(response) {
-                    $log.warn('log in failed');
-                    $log.warn(response);
+            auth.login($scope.email, $scope.password)
+                .then(function () {
+                    $location.path('/');
                 });
         };
 

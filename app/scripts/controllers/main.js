@@ -8,9 +8,17 @@
  * Controller of the myWebApp
  */
 angular.module('myWebApp')
-  .controller(
-    'MainCtrl',
-    function($scope, post) {
+    .controller('MainCtrl', function($scope, $location, auth) {
 
-      $scope.posts = post.query();
-  });
+        $scope.user = auth.user;
+
+        $scope.logout = function() {
+            auth.logout()
+                .then(function(success) {
+                    if (success) {
+                        $location.path('/');
+                    }
+                });
+        };
+
+    });
