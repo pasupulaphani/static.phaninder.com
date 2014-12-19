@@ -10,9 +10,9 @@
 angular.module('myWebApp')
     .controller(
         'PostCtrl',
-        function($scope, $routeParams, $location, post, utils, $twt) {
+        function($scope, $stateParams, $location, post, utils, $twt) {
             $scope.posts = post.query({
-                id: $routeParams.id
+                id: $stateParams.id
             });
 
             $scope.posts.$promise.then(function() {
