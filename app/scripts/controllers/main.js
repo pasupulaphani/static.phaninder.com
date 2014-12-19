@@ -8,7 +8,7 @@
  * Controller of the myWebApp
  */
 angular.module('myWebApp')
-    .controller('MainCtrl', function($scope, $location, auth) {
+    .controller('MainCtrl', function($rootScope, $scope, $location, auth) {
 
         $scope.user = auth.user;
 
@@ -28,5 +28,9 @@ angular.module('myWebApp')
         $scope.$on('notify', function(event, data) {
             angular.extend($scope.notify, data);
             $scope.notify.show = true;
+        });
+
+        $rootScope.$on('$routeChangeStart', function() {
+            $scope.notify.show = false;
         });
     });

@@ -15,18 +15,34 @@ angular
         'ngRoute',
         'ngSanitize',
         'ngTouch',
+        'ui.router',
         'socialsharing'
     ])
 
 .constant('restEndPoint', 'http://api.local-phaninder.com')
 
-.run(function($rootScope, $window, auth) {
+.run(function($rootScope, $window, $location, $state, auth) {
 
     // initialize foundation
     $rootScope.$on('$viewContentLoaded', function() {
         $window.$(document).foundation();
     });
 
+    $rootScope.$on('$stateChangeStart', function(event, toState) {
+
+        if (toState.publicAccess !== true) {
+
+            auth.getLoginStatus()
+                .then(function(loggedIn) {
+
+                    if (!loggedIn) {
+                        console.info('guest not allowed');
+                        $state.go('404');
+                        return $location.path();
+                    }
+                });
+        }
+    });
 
     $rootScope.site = {
         name: 'phaninder.com',
@@ -41,9 +57,10 @@ angular
     };
 
     auth.getLoginStatus();
+
 })
 
-.config(function($httpProvider, $routeProvider, $fbProvider, $twtProvider) {
+.config(function($httpProvider, $urlRouterProvider, $stateProvider, $fbProvider, $twtProvider) {
 
     // for sharing cookies, ... with cross origin requests
     $httpProvider.defaults.withCredentials = true;
@@ -51,34 +68,60 @@ angular
     // set csrf for cross origin requests
     $httpProvider.interceptors.push('myCSRF');
 
-    $routeProvider
-        .when('/login', {
+    $stateProvider
+        .state('home', {
+            url: '/',
+            templateUrl: 'views/posts.html',
+            controller: 'PostsCtrl',
+            publicAccess: true
+        })
+        .state('login', {
+            url: '/login',
             templateUrl: 'views/login.html',
-            controller: 'LoginCtrl'
+            controller: 'LoginCtrl',
+            publicAccess: true
         })
-        .when('/posts', {
+        .state('posts', {
+            url: '/posts',
+            templateUrl: 'views/posts.html',
+            controller: 'PostsCtrl',
+            publicAccess: true
+        })
+        .state('posts.status', {
+            url: '/status/:status?',
             templateUrl: 'views/posts.html',
             controller: 'PostsCtrl'
         })
-        .when('/posts/status/:status', {
-            templateUrl: 'views/posts.html',
-            controller: 'PostsCtrl'
-        })
-        .when('/posts/:id/:seo_title?', {
+        .state('post', {
+            url: '/posts/:id/:seo_title?',
             templateUrl: 'views/post.html',
-            controller: 'PostCtrl'
+            controller: 'PostCtrl',
+            publicAccess: true
         })
-        .when('/about', {
+        .state('/about', {
+            url: '/about',
             templateUrl: 'views/post.html',
-            controller: 'AboutCtrl'
+            controller: 'AboutCtrl',
+            publicAccess: true
         })
-        .when('/contact', {
+        .state('/contact', {
+            url: '/contact',
             templateUrl: 'views/post.html',
-            controller: 'ContactCtrl'
+            controller: 'ContactCtrl',
+            publicAccess: true
         })
-        .otherwise({
-            redirectTo: '/posts'
+        .state('404', {
+            templateUrl: 'views/404.html'
+        })
+        .state('500', {
+            templateUrl: 'views/500.html'
         });
+
+    $urlRouterProvider.otherwise(function($injector, $location) {
+        var state = $injector.get('$state');
+        state.go('404');
+        return $location.path();
+    });
 
     $fbProvider.init(515239655250335);
 
