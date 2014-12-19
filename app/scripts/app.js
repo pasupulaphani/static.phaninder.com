@@ -19,7 +19,7 @@ angular
         'socialsharing'
     ])
 
-.constant('restEndPoint', 'http://api.local-phaninder.com')
+.constant('restEndPoint', 'http://localhost:3000')
 
 .run(function($rootScope, $window, $location, $state, auth) {
 
@@ -68,13 +68,19 @@ angular
     // set csrf for cross origin requests
     $httpProvider.interceptors.push('myCSRF');
 
+    // go to the notFound route on 404 API error:
+    $httpProvider.interceptors.push(function($q, $injector) {
+        return {
+            responseError: function(rejection) {
+                if (rejection.status === 404) {
+                    $injector.get('$state').go('notFound');
+                }
+                return $q.reject(rejection);
+            }
+        };
+    });
+
     $stateProvider
-        .state('home', {
-            url: '/',
-            templateUrl: 'views/posts.html',
-            controller: 'PostsCtrl',
-            publicAccess: true
-        })
         .state('login', {
             url: '/login',
             templateUrl: 'views/login.html',
@@ -117,12 +123,36 @@ angular
             templateUrl: 'views/500.html'
         });
 
+    // show 404 without changing url
     $urlRouterProvider.otherwise(function($injector, $location) {
+
         var state = $injector.get('$state');
         state.go('404');
+
         return $location.path();
     });
 
+    // https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions\
+    //#how-to-make-a-trailing-slash-optional-for-all-routes
+    $urlRouterProvider.rule(function($injector, $location) {
+        var path = $location.url();
+
+        // check to see if the path already has a slash where it should be
+        if (path[path.length - 1] === '/' || path.indexOf('/?') > -1) {
+            return;
+        }
+
+        if (path.indexOf('?') > -1) {
+            return path.replace('?', '/?');
+        }
+
+        return path + '/';
+    });
+
+    // default to posts
+    $urlRouterProvider.when('/', '/posts');
+
+    // socialsharing
     $fbProvider.init(515239655250335);
 
     $twtProvider.setConfig({
