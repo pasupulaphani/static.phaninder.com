@@ -50,7 +50,15 @@ angular
     $httpProvider.interceptors.push('myCSRF');
 
     $routeProvider
+        .when('/login', {
+            templateUrl: 'views/login.html',
+            controller: 'LoginCtrl'
+        })
         .when('/posts', {
+            templateUrl: 'views/posts.html',
+            controller: 'PostsCtrl'
+        })
+        .when('/posts/status/:status', {
             templateUrl: 'views/posts.html',
             controller: 'PostsCtrl'
         })
@@ -65,10 +73,6 @@ angular
         .when('/contact', {
             templateUrl: 'views/post.html',
             controller: 'ContactCtrl'
-        })
-        .when('/login', {
-            templateUrl: 'views/login.html',
-            controller: 'LoginCtrl'
         })
         .otherwise({
             redirectTo: '/posts'

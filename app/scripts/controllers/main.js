@@ -21,4 +21,13 @@ angular.module('myWebApp')
                 });
         };
 
+        $scope.notify = {
+            show: false
+        };
+
+        $scope.$on('notify', function(event, data) {
+            angular.extend($scope.notify, data);
+            $scope.notify.show = true;
+        });
+
     });

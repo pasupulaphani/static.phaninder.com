@@ -30,18 +30,21 @@ angular.module('myWebApp')
                     .catch(function(response) {
                         $log.warn('log in failed');
                         $log.warn(response);
+                        user.loggedIn = false;
+                        return false;
                     });
             };
 
             var getLoginStatus = function() {
-                return $q.when($http.get(restEndPoint + '/login')
+                return $http.get(restEndPoint + '/login')
                     .then(function() {
                         user.loggedIn = true;
                         return true;
                     })
                     .catch(function() {
                         user.loggedIn = false;
-                    }));
+                        return false;
+                    });
             };
 
             var logout = function() {

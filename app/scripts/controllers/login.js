@@ -10,10 +10,21 @@
 angular.module('myWebApp')
     .controller('LoginCtrl', function($scope, $log, $location, auth) {
 
+        var failed = function() {
+            $scope.$emit('notify', {
+                type: 'alert',
+                msg: 'Invalid credentials'
+            });
+        };
+
         $scope.login = function() {
             auth.login($scope.email, $scope.password)
-                .then(function () {
-                    $location.path('/');
+                .then(function(success) {
+                    if(success) {
+                        $location.path('/');
+                    } else {
+                        failed();
+                    }
                 });
         };
 
