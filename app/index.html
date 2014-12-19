@@ -72,7 +72,8 @@
 
     <!-- Add your site or application content here -->
     <div class="container">
-        <nav data-topbar="data-topbar" class="top-bar" ng-include="'views/layout/admin_top.tpl.html'" ng-show="user.loggedIn"></nav>
+
+        <div ng-include="'views/layout/admin_top.tpl.html'" ng-show="user.loggedIn"></div>
         <header class="intro" ng-include="'views/layout/header.tpl.html'"></header>
         <div class="row" ng-include="'views/layout/top_nav.tpl.html'"></div>
         <div class="row notify" ng-include="'views/layout/notify.tpl.html'"></div>

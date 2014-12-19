@@ -23,8 +23,10 @@ angular
 .run(function($rootScope, $window, auth) {
 
     // initialize foundation
-    $window.Foundation.global.namespace = '';
-    $window.$(document).foundation();
+    $rootScope.$on('$viewContentLoaded', function() {
+        $window.$(document).foundation();
+    });
+
 
     $rootScope.site = {
         name: 'phaninder.com',

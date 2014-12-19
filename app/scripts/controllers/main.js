@@ -29,5 +29,4 @@ angular.module('myWebApp')
             angular.extend($scope.notify, data);
             $scope.notify.show = true;
         });
-
     });

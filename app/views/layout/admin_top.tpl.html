@@ -1,30 +1,33 @@
-<ul class="title-area">
-    <li class="name"></li>
-    <li class="toggle-topbar menu-icon"><a href=""><span>Admin</span></a>
-    </li>
-</ul>
-<section class="top-bar-section">
-    <ul class="right">
-        <li class="has-form"><a ng-click="logout()" href="" value="Logout" class="alert button expand">Logout</a>
+<nav data-topbar="data-topbar" class="top-bar" role="navigation">
+    <ul class="title-area">
+        <li class="name"></li>
+        <li class="toggle-topbar menu-icon"><a href=""><span>Admin</span></a>
         </li>
     </ul>
-    <ul class="right">
-        <li class="has-dropdown not-click"><a href="javascript: void(0)">Posts</a>
-            <ul class="dropdown">
-                <li class="title back js-generated">
-                    <h5><a href="#">Back</a></h5>
-                </li>
-                <li><a ng-href="#/posts/status/U">Under construction</a>
-                </li>
-                <li><a ng-href="#/posts/status/P">Published</a>
-                </li>
-                <li><a ng-href="#/posts/status/T">Trashed</a>
-                </li>
-                <li><a ng-href="#/posts/status/M">MiscPublished</a>
-                </li>
-            </ul>
-        </li>
-        <li class="has-form"><a href="/posts/new" value="New Post" class="button expand">New Post</a>
-        </li>
-    </ul>
-</section>
+    <section class="top-bar-section">
+        <ul class="right">
+            <li class="has-form"><a ng-click="logout()" href="" value="Logout" class="alert button expand">Logout</a>
+            </li>
+        </ul>
+        <ul class="right">
+            <li class="has-dropdown not-click"><a href="javascript: void(0)">Posts</a>
+                <ul class="dropdown">
+                    <li class="title back js-generated">
+                        <h5><a href="#">Back</a></h5>
+                    </li>
+                    <li><a ng-href="#/posts/status/U">Under construction</a>
+                    </li>
+                    <li><a ng-href="#/posts/status/P">Published</a>
+                    </li>
+                    <li><a ng-href="#/posts/status/T">Trashed</a>
+                    </li>
+                    <li><a ng-href="#/posts/status/M">MiscPublished</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="has-form"><a href="/posts/new" value="New Post" class="button expand">New Post</a>
+            </li>
+        </ul>
+    </section>
+
+</nav>
