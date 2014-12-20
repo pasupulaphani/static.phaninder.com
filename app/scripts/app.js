@@ -30,7 +30,7 @@ angular
 
     $rootScope.$on('$stateChangeStart', function(event, toState) {
 
-        if (toState.publicAccess !== true) {
+        if (typeof toState.publicAccess !== 'undefined' && toState.publicAccess === false) {
 
             auth.getLoginStatus()
                 .then(function(loggedIn) {
@@ -81,58 +81,6 @@ angular
         };
     });
 
-    $stateProvider
-        .state('login', {
-            url: '/login',
-            templateUrl: 'views/login.html',
-            controller: 'LoginCtrl',
-            publicAccess: true
-        })
-        .state('posts', {
-            url: '/posts',
-            templateUrl: 'views/posts.html',
-            controller: 'PostsCtrl',
-            publicAccess: true
-        })
-        .state('posts.status', {
-            url: '/status/:status?',
-            templateUrl: 'views/posts.html',
-            controller: 'PostsCtrl'
-        })
-        .state('post', {
-            url: '/posts/:id/:seo_title?',
-            templateUrl: 'views/post.html',
-            controller: 'PostCtrl',
-            publicAccess: true
-        })
-        .state('about', {
-            url: '/about',
-            templateUrl: 'views/post.html',
-            controller: 'AboutCtrl',
-            publicAccess: true
-        })
-        .state('contact', {
-            url: '/contact',
-            templateUrl: 'views/post.html',
-            controller: 'ContactCtrl',
-            publicAccess: true
-        })
-        .state('404', {
-            templateUrl: 'views/404.html'
-        })
-        .state('500', {
-            templateUrl: 'views/500.html'
-        });
-
-    // show 404 without changing url
-    $urlRouterProvider.otherwise(function($injector, $location) {
-
-        var state = $injector.get('$state');
-        state.go('404');
-
-        return $location.path();
-    });
-
     // https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions\
     //#how-to-make-a-trailing-slash-optional-for-all-routes
     $urlRouterProvider.rule(function($injector, $location) {
@@ -152,6 +100,55 @@ angular
 
     // default to posts
     $urlRouterProvider.when('/', '/posts');
+
+    // make sure that all paths end with trailing spaces
+    $stateProvider
+        .state('login', {
+            url: '/login/',
+            templateUrl: 'views/login.html',
+            controller: 'LoginCtrl'
+        })
+        .state('posts', {
+            url: '/posts/',
+            templateUrl: 'views/posts.html',
+            controller: 'PostsCtrl'
+        })
+        .state('posts.status', {
+            url: '/status/:status?/',
+            templateUrl: 'views/posts.html',
+            controller: 'PostsCtrl',
+            publicAccess: false
+        })
+        .state('post', {
+            url: '/posts/:id/:seo_title?/',
+            templateUrl: 'views/post.html',
+            controller: 'PostCtrl'
+        })
+        .state('about', {
+            url: '/about/',
+            templateUrl: 'views/post.html',
+            controller: 'AboutCtrl'
+        })
+        .state('contact', {
+            url: '/contact/',
+            templateUrl: 'views/post.html',
+            controller: 'ContactCtrl'
+        })
+        .state('404', {
+            templateUrl: 'views/404.html'
+        })
+        .state('500', {
+            templateUrl: 'views/500.html'
+        });
+
+    // show 404 without changing url
+    $urlRouterProvider.otherwise(function($injector, $location) {
+
+        var state = $injector.get('$state');
+        state.go('404');
+
+        return $location.path();
+    });
 
     // socialsharing
     $fbProvider.init(515239655250335);
