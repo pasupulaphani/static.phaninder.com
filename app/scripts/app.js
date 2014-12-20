@@ -53,7 +53,8 @@ angular
     // set some common content
     $rootScope.me = {
         image: 'http://www.gravatar.com/avatar/da8ad3d7a783fda9082894427e6be2a9.png',
-        description: 'Hi there! I\'m Phani. I live in London. I am a full stack developer who specializes in creating dynamic and beautiful web apps. I currently spend more time in developing new automation techniques for automating project life cycles of my mobile apps.'
+        description: 'Hi there! I\'m Phani. I live in London. I am a full stack developer who specializes in creating dynamic and beautiful web apps. I currently spend more time in developing new automation techniques for automating project life cycles of my mobile apps.',
+        twt_handler: 'PhaniPasupula'
     };
 
     auth.getLoginStatus();
@@ -73,7 +74,7 @@ angular
         return {
             responseError: function(rejection) {
                 if (rejection.status === 404) {
-                    $injector.get('$state').go('notFound');
+                    $injector.get('$state').go('404');
                 }
                 return $q.reject(rejection);
             }
@@ -104,13 +105,13 @@ angular
             controller: 'PostCtrl',
             publicAccess: true
         })
-        .state('/about', {
+        .state('about', {
             url: '/about',
             templateUrl: 'views/post.html',
             controller: 'AboutCtrl',
             publicAccess: true
         })
-        .state('/contact', {
+        .state('contact', {
             url: '/contact',
             templateUrl: 'views/post.html',
             controller: 'ContactCtrl',

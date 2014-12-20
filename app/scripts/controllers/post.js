@@ -10,7 +10,9 @@
 angular.module('myWebApp')
     .controller(
         'PostCtrl',
-        function($scope, $stateParams, $location, post, utils, $twt) {
+        function($scope, $stateParams, $state, $location, post, utils, $twt) {
+
+            if ($stateParams.id === '') {$state.go('404')};
             $scope.posts = post.query({
                 id: $stateParams.id
             });
