@@ -5,7 +5,8 @@
                 <h1>{{post.title}}</h1>
                 <p></p>
                 <div id="post-body" ng-bind-html="post.body"></div>
-                <span>created: {{post.created | date:'shortDate'}}</span>
+                <br />
+                <span>{{post.created | date:'fullDate'}}</span>
                 <p></p>
             </div>
         </div>
