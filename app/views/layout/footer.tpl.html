@@ -1,17 +1,15 @@
-<footer id="site-footer" role="contentinfo" class="row clearfix">
-  <div class="ten columns phone-two">
+<div class="large-10 small-10 columns">
     <ul class="inline-list">
-      <li><a href="#/" title="Home">Home</a>
-      </li>
-      <li><a href="#/about" title="About">About</a>
-      </li>
-      <li><a href="#/posts" title="Posts">Posts</a>
-      </li>
-      <li><a href="#/contact" title="Contact" class="email">Contact</a>
-      </li>
-      <li><a href="http://twitter.com/{{me.twt_handler}}">@{{me.twt_handler}}</a>
-      </li>
+        <li><a href="#/" title="Home">Home</a>
+        </li>
+        <li><a href="#/about" ng-class="{selected: location.path() === '/about/'}" title="About">About</a>
+        </li>
+        <li><a href="#/posts" ng-class="{selected: location.path() === '/posts/'}" title="Posts">Posts</a>
+        </li>
+        <li><a href="#/contact" ng-class="{selected: location.path() === '/contact/'}" title="Contact" class="email">Contact</a>
+        </li>
+        <li><a href="http://twitter.com/{{me.twt_handler}}">@{{me.twt_handler}}</a>
+        </li>
     </ul>
-  </div>
-  <a href="#" title="Back to the top" class="fi-arrow-up size-24 footer-back-up"></a>
-</footer>
+</div>
+<a href="" title="Back to the top" class="fi-arrow-up size-36 large-2 small-2"></a>
