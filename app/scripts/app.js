@@ -114,7 +114,7 @@ angular
             controller: 'PostsCtrl'
         })
         .state('posts.status', {
-            url: '/status/:status?/',
+            url: '/status/:status/',
             templateUrl: 'views/posts.html',
             controller: 'PostsCtrl',
             publicAccess: false
