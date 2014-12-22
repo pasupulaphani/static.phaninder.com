@@ -44,6 +44,8 @@ angular
         }
     });
 
+    $rootScope.location = $location;
+
     $rootScope.site = {
         name: 'phaninder.com',
         url: encodeURIComponent(document.URL),

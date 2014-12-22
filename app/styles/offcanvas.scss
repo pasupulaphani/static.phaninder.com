@@ -22,11 +22,17 @@ body.off-canvas {
 }
 header.intro {
     width: 100%;
-    line-height: 1.4;
-    border-bottom: 1px solid #eee;
-    background: #f3f3f3;
     color: #57626b;
     font-size: 100%;
+}
+header h2 strong {
+    background: rgba(255, 255, 255, .3);
+    color: #000;
+    padding: 3px 5px;
+    font-weight: 400;
+    -webkit-transition: .3s ease all;
+    -moz-transition: .3s ease all;
+    transition: .3s ease all
 }
 header div {
     margin: 0.5em auto 0.5em;
@@ -73,31 +79,24 @@ header h2 {
     -o-transition: all, 0.5s;
     transition: all, 0.5s;
 }
+#header {
+    border-bottom: 1px solid #eee;
+}
 #header-nav {
     color: #57626b;
-    font: inherit;
 }
 #header-nav span {
-    color: #a3a9b8;
-    font-size: 1.25em;
+    font-size: 0.75em;
     font-weight: 500;
     cursor: pointer;
     vertical-align: baseline;
 }
-#header-nav img {
-    background-repeat: no-repeat;
-    margin-right: 10px;
-    width: 30px;
-    /* you can use % */
-    
-    height: auto;
+#header-nav > a {
+    margin-right: 12px;
 }
-#header-nav dd {
-    margin-right: 17px;
-}
-#header-nav dd:hover, #header-nav a:hover {
+#header-nav a:hover,#header-nav span:hover, #header-nav .selected{
     opacity: 0.6;
-    color: #a3a9b8;
+    color: #1D78BD;
 }
 form #post-search-input {
     background: #fff url("../../../images/search_icon5.png") no-repeat 5px 5px;
@@ -159,12 +158,15 @@ form #post-search-input {
     top: 0.9em;
     position: relative;
 }
-#post h1, #findme h1 {
+.post {
+    margin-left: 20px!important;
+}
+.post h1, #findme h1 {
     color: #2c251d;
     font-size: 2.2em;
     font-weight: 700;
 }
-#post h3 {
+.post h3 {
     font-weight: 500;
     color: #4a4235;
     line-height: 1.1;
@@ -331,7 +333,7 @@ textarea {
         background: #f4f4f4;
     }
     .hide-extras [role="main"] {
-        width: 85%;
+        width: 95%;
     }
     .hide-extras [role="complementary"] {
         margin-left: -100%;
@@ -357,6 +359,12 @@ textarea {
     header h1 {
         margin: 0;
     }
+    #header-nav {
+        color: #57626b;
+        float: right;
+        margin-top: 35px;
+        margin-right: 100px;
+    }
 }
 @media all and (max-width: 768px) {
     #site-footer .inline-list li {
@@ -378,6 +386,9 @@ textarea {
     }
     .posts h2 {
         font-size: 17px;
+    }
+    #header-nav {
+        margin-left: 10px;
     }
 }
 @media all and (min-width: 64.063em) {
@@ -461,7 +472,7 @@ dt.h5 {
 .panel-body {
     padding: 15px;
 }
-.panel-body .button,.panel-body input {
+.panel-body .button, .panel-body input {
     width: 100%;
 }
 .button-github {

@@ -1,7 +1,7 @@
 <div class="row" ng-repeat="post in posts | limitTo:1">
     <section role="main">
-        <div id="post" class="row">
-            <div class="large-10 columns">
+        <div class="row post">
+            <div class="large-10 small-12 columns">
                 <h1>{{post.title}}</h1>
                 <p></p>
                 <div id="post-body" ng-bind-html="post.body"></div>
