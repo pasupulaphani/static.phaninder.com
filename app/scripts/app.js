@@ -81,6 +81,9 @@ angular
         };
     });
 
+    // default to posts
+    $urlRouterProvider.when('/', '/posts');
+
     // https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions\
     //#how-to-make-a-trailing-slash-optional-for-all-routes
     $urlRouterProvider.rule(function($injector, $location) {
@@ -98,10 +101,7 @@ angular
         return path + '/';
     });
 
-    // default to posts
-    $urlRouterProvider.when('/', '/posts');
-
-    // make sure that all paths end with trailing spaces
+    // make sure that all paths end with trailing spaces (this is because of above assumption)
     $stateProvider
         .state('login', {
             url: '/login/',
