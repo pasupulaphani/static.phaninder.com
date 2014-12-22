@@ -55,7 +55,7 @@ angular.module('myWebApp')
             });
 
             $scope.share = {
-                tpl: 'social_sharing'
+                tpl: 'social_networking'
             };
         })
     .controller(
