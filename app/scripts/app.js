@@ -114,10 +114,10 @@ angular
             templateUrl: 'views/posts.html',
             controller: 'PostsCtrl'
         })
-        .state('posts.status', {
-            url: '/status/:status/',
+        .state('posts_status_filter', {
+            url: '/posts/status/:status/',
             templateUrl: 'views/posts.html',
-            controller: 'PostsCtrl',
+            controller: 'PostsSearchCtrl',
             publicAccess: false
         })
         .state('post', {

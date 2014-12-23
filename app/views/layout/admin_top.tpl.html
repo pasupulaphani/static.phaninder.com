@@ -10,18 +10,11 @@
             </li>
         </ul>
         <ul class="right">
-            <li class="has-dropdown not-click"><a href="javascript: void(0)">Posts</a>
+            <li class="has-dropdown not-click">
+                <a href="javascript: void(0)">Posts</a>
                 <ul class="dropdown">
-                    <li class="title back js-generated">
-                        <h5><a href="#">Back</a></h5>
-                    </li>
-                    <li><a ng-href="#/posts/status/U">Under construction</a>
-                    </li>
-                    <li><a ng-href="#/posts/status/P">Published</a>
-                    </li>
-                    <li><a ng-href="#/posts/status/T">Trashed</a>
-                    </li>
-                    <li><a ng-href="#/posts/status/M">MiscPublished</a>
+                    <li ng-repeat="(type, desc) in {'U': 'Under construction', 'P': 'Published', 'T': 'Trashed', 'M': 'MiscPublished'}">
+                        <a ng-href="#/posts/status/{{type}}">{{desc}}</a>
                     </li>
                 </ul>
             </li>
