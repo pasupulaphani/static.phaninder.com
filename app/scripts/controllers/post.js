@@ -23,11 +23,10 @@ angular.module('myWebApp')
             $scope.posts.$promise.then(function() {
                 utils.markUp($scope.posts);
 
-                // instead use route resolve
+                // instead use route resolve if not seo
                 if ($stateParams.seo_url !== $scope.posts[0].seo_url) {
                     $location.path('/posts/' + $scope.posts[0]._id + '/' + $scope.posts[0].seo_url + '/');
-
-                };
+                }
             });
 
             $scope.share = {
