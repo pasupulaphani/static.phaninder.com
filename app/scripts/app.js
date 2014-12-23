@@ -12,7 +12,6 @@ angular
     .module('myWebApp', [
         'ngResource',
         'ngCookies',
-        'ngRoute',
         'ngSanitize',
         'ngTouch',
         'ui.router',
