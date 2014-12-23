@@ -351,6 +351,12 @@ module.exports = function (grunt) {
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
           src: ['generated/*']
+        }, {
+          expand: true,
+          dot: true,
+          cwd: 'bower_components/foundation-icon-fonts',
+          dest: '<%= yeoman.dist %>/styles',
+          src: '{,*/}*.{woff,ttf,eot}'
         }]
       },
       styles: {
