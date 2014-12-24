@@ -15,7 +15,8 @@ angular
         'ngSanitize',
         'ngTouch',
         'ui.router',
-        'socialsharing'
+        'socialsharing',
+        'csrf-cross-domain'
     ])
 
 .constant('restEndPoint', 'http://localhost:3000')
@@ -63,12 +64,6 @@ angular
 })
 
 .config(function($httpProvider, $urlRouterProvider, $stateProvider, $fbProvider, $twtProvider) {
-
-    // for sharing cookies, ... with cross origin requests
-    $httpProvider.defaults.withCredentials = true;
-
-    // set csrf for cross origin requests
-    $httpProvider.interceptors.push('myCSRF');
 
     // go to the notFound route on 404 API error:
     $httpProvider.interceptors.push(function($q, $injector) {
