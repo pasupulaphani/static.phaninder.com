@@ -29,6 +29,7 @@ module.exports = function(config) {
       'bower_components/jquery/dist/jquery.js',
       'bower_components/foundation/js/foundation.js',
       'bower_components/angular-socialsharing/dist/angular-socialsharing.js',
+      'bower_components/angular-csrf-cross-domain/dist/angular-csrf-cross-domain.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'
