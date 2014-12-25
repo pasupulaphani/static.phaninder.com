@@ -3,6 +3,8 @@ require_relative './mytasks'
 # config valid only for Capistrano 3.1
 lock '3.1'
 
+set :default_env, { path: "/usr/local/bin:$PATH" }
+
 set :application, 'static.phaninder.com'
 set :repo_url, 'git@github.com:pasupulaphani/static.phaninder.com.git'
 
