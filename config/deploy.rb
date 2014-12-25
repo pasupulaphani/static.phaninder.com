@@ -3,8 +3,6 @@ require_relative './mytasks'
 # config valid only for Capistrano 3.1
 lock '3.1'
 
-set :default_env, { path: "/usr/local/bin:$PATH" }
-
 set :application, 'static.phaninder.com'
 set :repo_url, 'git@github.com:pasupulaphani/static.phaninder.com.git'
 
@@ -33,8 +31,8 @@ namespace :deploy do
   desc 'Restart nginx'
   task :restart do
   	on roles(:web), in: :groups, limit: 3, wait: 1 do
-    	execute "sudo /etc/init.d/nginx stop"
-    	execute "sudo /etc/init.d/nginx start"
+    	execute "sudo service nginx stop"
+    	execute "sudo service nginx start"
     end
   end
 
