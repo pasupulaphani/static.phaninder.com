@@ -1,4 +1,4 @@
-# static.phaninder.com [![Build Status](https://secure.travis-ci.org/pasupulaphani/static.phaninder.com.png?branch=master)](http://travis-ci.org/pasupulaphani/static.phaninder.com)
+# static.phaninder.com [![Build Status](https://secure.travis-ci.org/pasupulaphani/static.phaninder.com.png?branch=master)](http://travis-ci.org/pasupulaphani/static.phaninder.com) [![Code Climate](https://codeclimate.com/github/pasupulaphani/static.phaninder.com/badges/gpa.svg)](https://codeclimate.com/github/pasupulaphani/static.phaninder.com) [![Test Coverage](https://codeclimate.com/github/pasupulaphani/static.phaninder.com/badges/coverage.svg)](https://codeclimate.com/github/pasupulaphani/static.phaninder.com)
 
 > This is a web client application [phaninder.com](http://phaninder.com) for [api.phaninder.com](http://api.phaninder.com)
 
