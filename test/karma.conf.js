@@ -56,8 +56,27 @@ module.exports = function(config) {
     // Which plugins to enable
     plugins: [
       'karma-phantomjs-launcher',
-      'karma-jasmine'
+      'karma-jasmine',
+      'karma-coverage'
     ],
+
+    preprocessors: {
+      'app/scripts/**/*.js': 'coverage'
+    },
+
+    // test results reporter to use
+    // possible values: 'dots', 'progress', 'junit'
+    reporters: ['progress', 'coverage'],
+
+    coverageReporter: {
+        type: 'lcov',
+        dir: 'coverage/',
+        subdir: function(browser) {
+            // normalization process to keep a consistent browser name accross different
+            // OS
+            return browser.toLowerCase().split(/[ /-]/)[0];
+        }
+    },
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit

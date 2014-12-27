@@ -7,10 +7,10 @@ before_install:
   - gem install sass
   - gem install compass
 before_script:
-  - npm install -g grunt-cli bower karma-cli codeclimate-test-reporter
+  - npm run preinstall
   - bower install --force
 addons:
   code_climate:
-    repo_token:6072ec34cdd7eec6b29ffc071f1575f41c27fa39e2dbe54fdc4d329c7dd372f4
+    repo_token: 6072ec34cdd7eec6b29ffc071f1575f41c27fa39e2dbe54fdc4d329c7dd372f4
 after_script:
-  - cat lcov.info | codeclimate
+  - cat coverage/phantomjs/lcov.info | codeclimate
