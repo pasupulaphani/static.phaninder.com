@@ -125,6 +125,12 @@ angular
             templateUrl: 'views/post.html',
             controller: 'PostCtrl'
         })
+        .state('post', {
+            url: '/posts/:id/edit',
+            templateUrl: 'views/post.html',
+            controller: 'PostCtrl',
+            publicAccess: false
+        })
         .state('about', {
             url: '/about/',
             templateUrl: 'views/post.html',
