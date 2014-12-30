@@ -1,4 +1,4 @@
-<dl id="post-admin" role="main" class="sub-nav">
+<dl id="post-admin" role="main" class="sub-nav" style="padding-left: 35px;">
     <dd id="set-status">
         <script>
         function setPostStatus(state) {
@@ -23,16 +23,21 @@
     </dd>
     <dd id="post-edit"><a href="/posts/gotchas-connect-mongo-session-store/edit" class="small secondary button">Edit Post</a>
     </dd>
+
+    <!-- This info is to just a fix to show dropdown buttons list-->
+    <!-- more info : https://github.com/zurb/foundation/issues/3922-->
+    <br>
+    <br>
+    <br>
+    <div style="padding-left: 20px;">
+        <span>
+        <b>Post Info :</b>
+        <br>author: {{post.user}}
+        <br>last modified : {{post.modified | date:'fullDate'}}
+        </span>
+    </div>
 </dl>
-<!-- This info is to just a fix to show dropdown buttons list-->
-<!-- more info : https://github.com/zurb/foundation/issues/3922-->
-<div role="main">
-    <span>
-    <b>Post Info :</b>
-    <br>author: {{post.user}}
-    <br>last modified : {{post.modified | date:'fullDate'}}
-    </span>
-</div>
+
 <script>
 $(document).foundation();
 </script>
