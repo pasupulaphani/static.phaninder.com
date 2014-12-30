@@ -21,11 +21,14 @@ angular
 
 .constant('restEndPoint', 'http://localhost:3000')
 
-.run(function($rootScope, $window, $location, $state, auth) {
+.run(function($rootScope, $location, $state, auth) {
 
     // initialize foundation
     $rootScope.$on('$viewContentLoaded', function() {
-        $window.$(document).foundation();
+        angular.element(document).ready(function() {
+            angular.element(document).foundation();
+        });
+        
     });
 
     $rootScope.$on('$stateChangeStart', function(event, toState) {
@@ -120,16 +123,16 @@ angular
             templateUrl: 'views/post.html',
             controller: 'PostCtrl'
         })
+        .state('post_edit', {
+            url: '/posts/{id}{seo_title:(?:/[^/]+)?}/edit/',
+            templateUrl: 'views/post.html',
+            controller: 'PostEditCtrl',
+            publicAccess: false
+        })
         .state('post_seo_title', {
             url: '/posts/:id/:seo_title/',
             templateUrl: 'views/post.html',
             controller: 'PostCtrl'
-        })
-        .state('post', {
-            url: '/posts/:id/edit',
-            templateUrl: 'views/post.html',
-            controller: 'PostCtrl',
-            publicAccess: false
         })
         .state('about', {
             url: '/about/',

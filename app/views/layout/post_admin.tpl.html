@@ -1,0 +1,38 @@
+<dl id="post-admin" role="main" class="sub-nav">
+    <dd id="set-status">
+        <script>
+        function setPostStatus(state) {
+            document.postStatusForm.status.value = state;
+            // document.postStatusForm.submit();
+        }
+        </script>
+        <form name="postStatusForm" action="/posts/gotchas-connect-mongo-session-store/status" method="post">
+            <input type="hidden" id="status" name="status" value="">
+            <input type="hidden" name="_method" value="put">
+        </form><a href="" data-dropdown="statuslist" class="small secondary radius button dropdown">Published</a>
+        <br>
+        <ul id="statuslist" data-dropdown-content="data-dropdown-content" class="f-dropdown">
+            <li><a onclick="setPostStatus('U')" href="javascript: void(0)">Under construction</a>
+            </li>
+            <li><a onclick="setPostStatus('T')" href="javascript: void(0)">Trashed</a>
+            </li>
+            <li><a onclick="setPostStatus('M')" href="javascript: void(0)">MiscPublished</a>
+            </li>
+        </ul>
+
+    </dd>
+    <dd id="post-edit"><a href="/posts/gotchas-connect-mongo-session-store/edit" class="small secondary button">Edit Post</a>
+    </dd>
+</dl>
+<!-- This info is to just a fix to show dropdown buttons list-->
+<!-- more info : https://github.com/zurb/foundation/issues/3922-->
+<div role="main">
+    <span>
+    <b>Post Info :</b>
+    <br>author: {{post.user}}
+    <br>last modified : {{post.modified | date:'fullDate'}}
+    </span>
+</div>
+<script>
+$(document).foundation();
+</script>
