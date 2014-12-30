@@ -118,6 +118,12 @@ angular
             controller: 'PostsSearchCtrl',
             publicAccess: false
         })
+        .state('post_edit', {
+            url: '/posts/{id}{seo_title:(?:/[^/]+)?}/edit/',
+            templateUrl: 'views/post.html',
+            controller: 'PostEditCtrl',
+            publicAccess: false
+        })
         .state('post', {
             url: '/posts/{id}{seo_title:(?:/[^/]+)?}/',
             templateUrl: 'views/post.html',
@@ -127,12 +133,6 @@ angular
                     return $stateParams.id;
                 }
             }
-        })
-        .state('post_edit', {
-            url: '/posts/{id}{seo_title:(?:/[^/]+)?}/edit/',
-            templateUrl: 'views/post.html',
-            controller: 'PostEditCtrl',
-            publicAccess: false
         })
         .state('about', {
             url: '/about/',

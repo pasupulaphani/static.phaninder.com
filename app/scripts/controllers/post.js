@@ -17,11 +17,14 @@ angular.module('myWebApp')
                 return;
             }
 
-            $scope.posts = post.query({
-                id: id
-            });
+            $scope.posts = [];
 
-            $scope.posts.$promise.then(function() {
+            post.query({
+                id: id
+            }).$promise.then(function(posts) {
+
+                // populate data
+                $scope.posts = posts;
                 utils.markUp($scope.posts);
 
                 // instead use route resolve if not seo
@@ -30,10 +33,14 @@ angular.module('myWebApp')
                 }
             });
 
-            $scope.setStatus = function (status) {
+            $scope.setStatus = function(status) {
                 post.setStatus({
                     id: id,
                     status: status
+                }).$promise.then(function() {
+
+                    // success
+                    $scope.posts[0].status = status;
                 });
             };
 
@@ -67,7 +74,7 @@ angular.module('myWebApp')
             });
 
             $scope.share = {
-                tpl: 'social_sharing',
+                tpl: ['about', 'contact'].indexOf($stateParams.id) === -1 ? 'social_sharing' : 'social_networking',
                 twt: function() {
                     $twt.intent('tweet', {
                         text: 'Adventures at NodeCoptor',
@@ -76,5 +83,4 @@ angular.module('myWebApp')
                     });
                 }
             };
-
         });
