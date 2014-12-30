@@ -119,9 +119,14 @@ angular
             publicAccess: false
         })
         .state('post', {
-            url: '/posts/:id/',
+            url: '/posts/{id}{seo_title:(?:/[^/]+)?}/',
             templateUrl: 'views/post.html',
-            controller: 'PostCtrl'
+            controller: 'PostCtrl',
+            resolve: {
+                id : function ($stateParams) {
+                    return $stateParams.id;
+                }
+            }
         })
         .state('post_edit', {
             url: '/posts/{id}{seo_title:(?:/[^/]+)?}/edit/',
@@ -129,20 +134,25 @@ angular
             controller: 'PostEditCtrl',
             publicAccess: false
         })
-        .state('post_seo_title', {
-            url: '/posts/:id/:seo_title/',
-            templateUrl: 'views/post.html',
-            controller: 'PostCtrl'
-        })
         .state('about', {
             url: '/about/',
             templateUrl: 'views/post.html',
-            controller: 'AboutCtrl'
+            controller: 'PostCtrl',
+            resolve: {
+                id : function () {
+                    return 'about';
+                }
+            }
         })
         .state('contact', {
             url: '/contact/',
             templateUrl: 'views/post.html',
-            controller: 'ContactCtrl'
+            controller: 'PostCtrl',
+            resolve: {
+                id : function () {
+                    return 'contact';
+                }
+            }
         })
         .state('404', {
             templateUrl: 'views/404.html'

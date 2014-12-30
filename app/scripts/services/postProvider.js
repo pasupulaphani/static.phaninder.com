@@ -13,32 +13,18 @@ angular.module('myWebApp')
     function () {
 
       this.$get = ['$resource', 'restEndPoint', function($resource, restEndPoint) {
-        var Post = $resource(restEndPoint + '/posts/:id/:seo_title', {}, {
+        var Post = $resource(restEndPoint + '/posts/:id/:seo_title', {id: '@id'}, {
           update: {
             method: 'PUT'
+          },
+          setStatus: {
+            method: 'PATCH',
+            params: {
+              status: '@status'
+            }
           }
         });
 
         return Post;
-      }];
-  })
-  .provider(
-    'about',
-    function () {
-
-      this.$get = ['$resource', 'restEndPoint', function($resource, restEndPoint) {
-        var About = $resource(restEndPoint + '/about', {}, {});
-
-        return About;
-      }];
-  })
-  .provider(
-    'contact',
-    function () {
-
-      this.$get = ['$resource', 'restEndPoint', function($resource, restEndPoint) {
-        var Contact = $resource(restEndPoint + '/contact', {}, {});
-
-        return Contact;
       }];
   });

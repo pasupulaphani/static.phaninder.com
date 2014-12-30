@@ -10,15 +10,15 @@
 angular.module('myWebApp')
     .controller(
         'PostCtrl',
-        function($scope, $stateParams, $state, $location, post, utils, $twt) {
+        function($scope, $stateParams, $state, $location, post, utils, $twt, id) {
 
-            if ($stateParams.id === '') {
+            if (id === '') {
                 $state.go('404');
                 return;
             }
 
             $scope.posts = post.query({
-                id: $stateParams.id
+                id: id
             });
 
             $scope.posts.$promise.then(function() {
@@ -30,8 +30,15 @@ angular.module('myWebApp')
                 }
             });
 
+            $scope.setStatus = function (status) {
+                post.setStatus({
+                    id: id,
+                    status: status
+                });
+            };
+
             $scope.share = {
-                tpl: 'social_sharing',
+                tpl: ['about', 'contact'].indexOf(id) === -1 ? 'social_sharing' : 'social_networking',
                 twt: function() {
                     $twt.intent('tweet', {
                         text: 'Adventures at NodeCoptor',
@@ -70,36 +77,4 @@ angular.module('myWebApp')
                 }
             };
 
-        })
-    .controller(
-        'AboutCtrl',
-        function($scope, utils, about) {
-
-            $scope.posts = about.query({
-                id: 'about'
-            });
-
-            $scope.posts.$promise.then(function() {
-                utils.markUp($scope.posts);
-            });
-
-            $scope.share = {
-                tpl: 'social_sharing'
-            };
-        })
-    .controller(
-        'ContactCtrl',
-        function($scope, utils, contact) {
-
-            $scope.posts = contact.query({
-                id: 'contact'
-            });
-
-            $scope.posts.$promise.then(function() {
-                utils.markUp($scope.posts);
-            });
-
-            $scope.share = {
-                tpl: 'social_networking'
-            };
         });

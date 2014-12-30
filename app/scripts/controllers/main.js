@@ -10,8 +10,16 @@
 angular.module('myWebApp')
     .controller('MainCtrl', function($rootScope, $scope, $location, auth) {
 
+        // bind data
         $scope.user = auth.user;
+        $scope.postTypes = {
+            'U': 'Under construction',
+            'P': 'Published',
+            'T': 'Trashed',
+            'M': 'MiscPublished'
+        };
 
+        // public api
         $scope.logout = function() {
             auth.logout()
                 .then(function(success) {
@@ -21,6 +29,7 @@ angular.module('myWebApp')
                 });
         };
 
+        // notification stuff
         $scope.notify = {
             show: false
         };

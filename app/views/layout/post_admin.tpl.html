@@ -1,27 +1,15 @@
 <dl id="post-admin" role="main" class="sub-nav" style="padding-left: 35px;">
     <dd id="set-status">
-        <script>
-        function setPostStatus(state) {
-            document.postStatusForm.status.value = state;
-            // document.postStatusForm.submit();
-        }
-        </script>
-        <form name="postStatusForm" action="/posts/gotchas-connect-mongo-session-store/status" method="post">
-            <input type="hidden" id="status" name="status" value="">
-            <input type="hidden" name="_method" value="put">
-        </form><a href="" data-dropdown="statuslist" class="small secondary radius button dropdown">Published</a>
+        <a href="" data-dropdown="statuslist" class="small secondary radius button dropdown">{{postTypes[post.status]}}</a>
         <br>
         <ul id="statuslist" data-dropdown-content="data-dropdown-content" class="f-dropdown">
-            <li><a onclick="setPostStatus('U')" href="javascript: void(0)">Under construction</a>
-            </li>
-            <li><a onclick="setPostStatus('T')" href="javascript: void(0)">Trashed</a>
-            </li>
-            <li><a onclick="setPostStatus('M')" href="javascript: void(0)">MiscPublished</a>
+            <li ng-repeat="(type, desc) in postTypes" ng-if="type !== post.status">
+                <a ng-click="setStatus(type)">{{desc}}</a>
             </li>
         </ul>
 
     </dd>
-    <dd id="post-edit"><a href="/posts/gotchas-connect-mongo-session-store/edit" class="small secondary button">Edit Post</a>
+    <dd id="post-edit"><a ng-href="/posts/{{post._id}}/edit" class="small secondary button">Edit Post</a>
     </dd>
 
     <!-- This info is to just a fix to show dropdown buttons list-->

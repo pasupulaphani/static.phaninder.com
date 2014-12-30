@@ -13,7 +13,7 @@
             <li class="has-dropdown not-click">
                 <a href="javascript: void(0)">Posts</a>
                 <ul class="dropdown">
-                    <li ng-repeat="(type, desc) in {'U': 'Under construction', 'P': 'Published', 'T': 'Trashed', 'M': 'MiscPublished'}">
+                    <li ng-repeat="(type, desc) in postTypes">
                         <a ng-href="#/posts/status/{{type}}">{{desc}}</a>
                     </li>
                 </ul>
