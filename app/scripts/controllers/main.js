@@ -8,16 +8,11 @@
  * Controller of the myWebApp
  */
 angular.module('myWebApp')
-    .controller('MainCtrl', function($rootScope, $scope, $location, auth) {
+    .controller('MainCtrl', function($rootScope, $scope, $location, postTypes, auth) {
 
         // bind data
         $scope.user = auth.user;
-        $scope.postTypes = {
-            'U': 'Under construction',
-            'P': 'Published',
-            'T': 'Trashed',
-            'M': 'MiscPublished'
-        };
+        $scope.postTypes = postTypes;
 
         // public api
         $scope.logout = function() {

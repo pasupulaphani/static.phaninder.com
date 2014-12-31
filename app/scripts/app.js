@@ -21,6 +21,12 @@ angular
     ])
 
 .constant('restEndPoint', 'http://localhost:3000')
+    .constant('postTypes', {
+        'U': 'Under construction',
+        'P': 'Published',
+        'T': 'Trashed',
+        'M': 'MiscPublished'
+    })
 
 .run(function($rootScope, $location, $state, auth) {
 
@@ -29,7 +35,7 @@ angular
         angular.element(document).ready(function() {
             angular.element(document).foundation();
         });
-        
+
     });
 
     $rootScope.$on('$stateChangeStart', function(event, toState) {
@@ -130,7 +136,7 @@ angular
             templateUrl: 'views/post.html',
             controller: 'PostCtrl',
             resolve: {
-                id : function ($stateParams) {
+                id: function($stateParams) {
                     return $stateParams.id;
                 }
             }
@@ -140,7 +146,7 @@ angular
             templateUrl: 'views/post.html',
             controller: 'PostCtrl',
             resolve: {
-                id : function () {
+                id: function() {
                     return 'about';
                 }
             }
@@ -150,7 +156,7 @@ angular
             templateUrl: 'views/post.html',
             controller: 'PostCtrl',
             resolve: {
-                id : function () {
+                id: function() {
                     return 'contact';
                 }
             }
