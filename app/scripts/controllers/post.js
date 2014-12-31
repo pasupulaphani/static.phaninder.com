@@ -81,7 +81,8 @@ angular.module('myWebApp')
                 });
 
             $scope.save = function() {
-
+                // trigger input expicitly to bind updates to model
+                angular.element('#post-body').trigger('input');
                 post.update(queryParams, $scope.posts[0])
                     .$promise.then(function() {
 

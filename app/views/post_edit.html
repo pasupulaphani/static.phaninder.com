@@ -33,41 +33,17 @@
 </div>
 
 <!-- Epic editor stuff -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/epiceditor/0.2.2/js/epiceditor.min.js"></script>
+<script async="false" defer="false" src="https://cdnjs.cloudflare.com/ajax/libs/epiceditor/0.2.2/js/epiceditor.min.js"></script>
 <script>
 var opts = {
     container: 'epiceditor',
     textarea: 'post-body',
-    basePath: '',
     clientSideStorage: false,
     localStorageName: 'epiceditor',
-    useNativeFullscreen: true,
-    parser: marked,
-    file: {
-        name: 'epiceditor',
-        defaultContent: '',
-        autoSave: false
-    },
     theme: {
         base: 'https://cdnjs.cloudflare.com/ajax/libs/epiceditor/0.2.2/themes/base/epiceditor.css',
         preview: 'https://cdnjs.cloudflare.com/ajax/libs/epiceditor/0.2.2/themes/preview/github.css',
         editor: 'https://cdnjs.cloudflare.com/ajax/libs/epiceditor/0.2.2/themes/editor/epic-dark.css'
-    },
-    button: {
-        preview: true,
-        fullscreen: true,
-        bar: "auto"
-    },
-    focusOnLoad: false,
-    shortcut: {
-        modifier: 18,
-        fullscreen: 70,
-        preview: 80
-    },
-    string: {
-        togglePreview: 'Toggle Preview Mode',
-        toggleEdit: 'Toggle Edit Mode',
-        toggleFullscreen: 'Enter Fullscreen'
     },
     autogrow: true
 };
