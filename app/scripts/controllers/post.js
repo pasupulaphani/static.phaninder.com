@@ -20,18 +20,19 @@ angular.module('myWebApp')
             $scope.posts = [];
 
             post.query({
-                id: id
-            }).$promise.then(function(posts) {
+                    id: id
+                })
+                .$promise.then(function(posts) {
 
-                // populate data
-                $scope.posts = posts;
-                utils.markUp($scope.posts);
+                    // populate data
+                    $scope.posts = posts;
+                    utils.markUp($scope.posts);
 
-                // instead use route resolve if not seo
-                if ($stateParams.seo_url !== $scope.posts[0].seo_url) {
-                    $location.path('/posts/' + $scope.posts[0]._id + '/' + $scope.posts[0].seo_url + '/');
-                }
-            });
+                    // instead use route resolve if not seo
+                    if ($stateParams.seo_url !== $scope.posts[0].seo_url) {
+                        $location.path('/posts/' + $scope.posts[0]._id + '/' + $scope.posts[0].seo_url + '/');
+                    }
+                });
 
             $scope.setStatus = function(status) {
                 post.setStatus({
@@ -58,29 +59,22 @@ angular.module('myWebApp')
         })
     .controller(
         'PostEditCtrl',
-        function($scope, $stateParams, $state, $location, post, utils, $twt) {
+        function($scope, $stateParams, $state, post, utils) {
 
             if ($stateParams.id === '') {
                 $state.go('404');
                 return;
             }
 
-            $scope.posts = post.query({
-                id: $stateParams.id
-            });
+            $scope.posts = [];
 
-            $scope.posts.$promise.then(function() {
-                utils.markUp($scope.posts);
-            });
+            post.query({
+                    id: $stateParams.id
+                })
+                .$promise.then(function(posts) {
 
-            $scope.share = {
-                tpl: ['about', 'contact'].indexOf($stateParams.id) === -1 ? 'social_sharing' : 'social_networking',
-                twt: function() {
-                    $twt.intent('tweet', {
-                        text: 'Adventures at NodeCoptor',
-                        url: 'http://localhost:9000/#/posts/sdfg3/undefined',
-                        hashtags: 'phaninder.com'
-                    });
-                }
-            };
+                    // populate data
+                    $scope.posts = posts;
+                    utils.markUp($scope.posts);
+                });
         });

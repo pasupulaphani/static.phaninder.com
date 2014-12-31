@@ -15,6 +15,7 @@ angular
         'ngSanitize',
         'ngTouch',
         'ui.router',
+        'ui.date',
         'socialsharing',
         'csrf-cross-domain'
     ])
@@ -120,7 +121,7 @@ angular
         })
         .state('post_edit', {
             url: '/posts/{id}{seo_title:(?:/[^/]+)?}/edit/',
-            templateUrl: 'views/post.html',
+            templateUrl: 'views/post_edit.html',
             controller: 'PostEditCtrl',
             publicAccess: false
         })

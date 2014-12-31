@@ -20,7 +20,6 @@ module.exports = function(config) {
     files: [
       'bower_components/angular/angular.js',
       'bower_components/angular-mocks/angular-mocks.js',
-      'bower_components/angular-route/angular-route.js',
       'bower_components/angular-ui-router/release/angular-ui-router.js',
       'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-cookies/angular-cookies.js',
@@ -30,6 +29,9 @@ module.exports = function(config) {
       'bower_components/foundation/js/foundation.js',
       'bower_components/angular-socialsharing/dist/angular-socialsharing.js',
       'bower_components/angular-csrf-cross-domain/dist/angular-csrf-cross-domain.js',
+      'bower_components/EpicEditor/epiceditor/js/epiceditor.js',
+      'bower_components/jquery-ui/jquery-ui.js',
+      'bower_components/angular-ui-date/src/date.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'
