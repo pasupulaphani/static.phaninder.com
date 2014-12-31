@@ -21,14 +21,15 @@ angular
     ])
 
 .constant('restEndPoint', 'http://localhost:3000')
-    .constant('postTypes', {
-        'U': 'Under construction',
-        'P': 'Published',
-        'T': 'Trashed',
-        'M': 'MiscPublished'
-    })
 
-.run(function($rootScope, $location, $state, auth) {
+.constant('postTypes', {
+    'U': 'Under construction',
+    'P': 'Published',
+    'T': 'Trashed',
+    'M': 'MiscPublished'
+})
+
+.run(function($log, $rootScope, $location, $state, auth) {
 
     // initialize foundation
     $rootScope.$on('$viewContentLoaded', function() {
@@ -46,7 +47,7 @@ angular
                 .then(function(loggedIn) {
 
                     if (!loggedIn) {
-                        console.info('guest not allowed');
+                        $log.info('guest not allowed');
                         $state.go('404');
                         return $location.path();
                     }
@@ -123,6 +124,12 @@ angular
             url: '/posts/status/:status/',
             templateUrl: 'views/posts.html',
             controller: 'PostsSearchCtrl',
+            publicAccess: false
+        })
+        .state('post_new', {
+            url: '/posts/new/',
+            templateUrl: 'views/post_edit.html',
+            controller: 'PostNewCtrl',
             publicAccess: false
         })
         .state('post_edit', {

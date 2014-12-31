@@ -59,7 +59,7 @@ angular.module('myWebApp')
         })
     .controller(
         'PostEditCtrl',
-        function($scope, $stateParams, $state, $location, post, utils) {
+        function($scope, $stateParams, $state, $location, post) {
 
             if ($stateParams.id === '') {
                 $state.go('404');
@@ -89,6 +89,25 @@ angular.module('myWebApp')
                     .$promise.then(function() {
 
                         $location.path('/posts/' + $scope.posts[0]._id);
+                    });
+            };
+        })
+    .controller(
+        'PostNewCtrl',
+        function($scope, $state, $location, post) {
+
+            $scope.posts = [{}];
+
+            $scope.create = function() {
+
+                // trigger input expicitly to bind updates to model
+                angular.element('#post-preface').trigger('input');
+                angular.element('#post-body').trigger('input');
+
+                post.save($scope.posts[0])
+                    .$promise.then(function(post) {
+
+                        $location.path('/posts/' + post._id);
                     });
             };
         });
