@@ -15,7 +15,6 @@ angular.module('myWebApp')
             var utils = function() {};
 
             utils.markUp = function(posts) {
-
                 angular.forEach(posts, function(post) {
                     post.preface = $window.marked(post.preface || '');
                     post.body = $window.marked(post.body || '');

@@ -6,10 +6,13 @@
           <li>
             <a href="#/posts/{{post._id}}/{{post.seo_url}}">
               <h2>{{post.title}}</h2>
-              <img src="http://creativejs.com/wp-content/uploads/2012/10/nodecopter.jpg">
+              <img ng-show="post.banner && post.banner !== ''" ng-src="{{post.banner}}">
             </a>
             <br /><br />
-            <p>One hour fifteen minutes long; fortnightly. – May switch to virtual face to face if need be. Based on James Shore's "Art of Agile Develoment" Adaptable as per our own needs Seek opportunities for team improvement … <a href="#/posts/{{post._id}}/{{post.seo_url}}">Continue reading <span class="meta-nav">→</span></a></p>
+            <p ng-show="post.preface !== ''">
+              <span ng-bind-html="post.preface"></span>
+              <a href="#/posts/{{post._id}}/{{post.seo_url}}">Read more <span class="meta-nav">→</span></a>
+            </p>
           </li>
         </ul>
       </div>

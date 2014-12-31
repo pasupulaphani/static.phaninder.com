@@ -77,12 +77,14 @@ angular.module('myWebApp')
 
                     // populate data
                     $scope.posts = posts;
-                    utils.markUp($scope.posts);
                 });
 
             $scope.save = function() {
+
                 // trigger input expicitly to bind updates to model
+                angular.element('#post-preface').trigger('input');
                 angular.element('#post-body').trigger('input');
+
                 post.update(queryParams, $scope.posts[0])
                     .$promise.then(function() {
 

@@ -10,15 +10,21 @@
 angular.module('myWebApp')
     .controller(
         'PostsCtrl',
-        function($scope, post) {
+        function($scope, utils, post) {
 
-            $scope.posts = post.query();
+            $scope.posts = [];
+            post.query()
+                .$promise.then(function(posts) {
+                    $scope.posts = posts;
+                    utils.markUp($scope.posts);
+                });
+
         })
     .controller(
         'PostsSearchCtrl',
         function($scope, $stateParams, $http, restEndPoint, utils) {
 
-			$scope.posts = [];
+            $scope.posts = [];
 
             $http.get(restEndPoint + '/posts/', {
                     params: {
