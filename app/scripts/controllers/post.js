@@ -59,22 +59,33 @@ angular.module('myWebApp')
         })
     .controller(
         'PostEditCtrl',
-        function($scope, $stateParams, $state, post, utils) {
+        function($scope, $stateParams, $state, $location, post, utils) {
 
             if ($stateParams.id === '') {
                 $state.go('404');
                 return;
             }
 
+            var queryParams = {
+                id: $stateParams.id
+            };
+
             $scope.posts = [];
 
-            post.query({
-                    id: $stateParams.id
-                })
+            post.query(queryParams)
                 .$promise.then(function(posts) {
 
                     // populate data
                     $scope.posts = posts;
                     utils.markUp($scope.posts);
                 });
+
+            $scope.save = function() {
+
+                post.update(queryParams, $scope.posts[0])
+                    .$promise.then(function() {
+
+                        $location.path('/posts/' + $scope.posts[0]._id);
+                    });
+            };
         });
