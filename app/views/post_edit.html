@@ -8,7 +8,7 @@
                         <input id="title" name="title" type="text" ng-model="post.title" ng-required="post.title">
                     </li>
                     <li>
-                        <lable for="title">Seo URL</lable>
+                        <lable for="title">Seo URL</lable> <a href="" ng-click="post.seo_url = urlSeoEsc(post.title)">(Click me to generate one)</a>
                         <input id="seo_url" name="seo_url" type="text" ng-model="post.seo_url">
                     </li>
                     <li>

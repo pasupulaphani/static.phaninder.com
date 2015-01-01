@@ -12,7 +12,8 @@ angular.module('myWebApp')
         'utils',
         function($window) {
 
-            var utils = function() {};
+            // Private methods
+            function utils() {}
 
             utils.markUp = function(posts) {
                 angular.forEach(posts, function(post) {
@@ -21,6 +22,22 @@ angular.module('myWebApp')
                 });
             };
 
-            // Public API here
+            utils.urlSeoEsc = function(str) {
+
+                if (!str) {
+                    return '';
+                }
+
+                str = str
+                    .replace(/[^a-zA-Z0-9-_\s]/g, '') //replace except alphabits, numbers, spaces, _, -
+                    .trim()
+                    .replace(/[\s_-]+/g, '-'); // now replace multiple spaces, _, - with - (seo friendly)
+
+                str = $window.escape(str); // just incase
+
+                return angular.lowercase(str);
+            };
+
+            // Public API
             return utils;
         });

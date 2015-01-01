@@ -55,7 +55,7 @@ angular.module('myWebApp')
         })
     .controller(
         'PostEditCtrl',
-        function($scope, $log, $stateParams, $state, $location, post) {
+        function($scope, $log, $stateParams, $state, $location, utils, post) {
 
             if ($stateParams.id === '') {
                 $state.go('404');
@@ -97,10 +97,12 @@ angular.module('myWebApp')
                         failed(resp.data.error);
                     });
             };
+
+            $scope.urlSeoEsc = utils.urlSeoEsc;
         })
     .controller(
         'PostNewCtrl',
-        function($scope, $log, $state, $location, post) {
+        function($scope, $log, $state, $location, utils, post) {
 
             var failed = function(msg) {
                 $scope.$emit('notify', {
@@ -128,6 +130,8 @@ angular.module('myWebApp')
                         failed(resp.data.error);
                     });
             };
+
+            $scope.urlSeoEsc = utils.urlSeoEsc;
         })
     .controller(
         'PostShare',
