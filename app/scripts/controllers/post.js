@@ -29,7 +29,7 @@ angular.module('myWebApp')
                     utils.markUp($scope.posts);
 
                     // instead use route resolve if not seo
-                    if ($stateParams.seo_url !== $scope.posts[0].seo_url) {
+                    if ($stateParams.seo_url !== $scope.posts[0].seo_url && $scope.posts[0].seo_url !== '') {
                         $location.path('/posts/' + $scope.posts[0]._id + '/' + $scope.posts[0].seo_url + '/');
                     }
                 });
@@ -59,7 +59,7 @@ angular.module('myWebApp')
         })
     .controller(
         'PostEditCtrl',
-        function($scope, $stateParams, $state, $location, post) {
+        function($scope, $log, $stateParams, $state, $location, post) {
 
             if ($stateParams.id === '') {
                 $state.go('404');
@@ -68,6 +68,13 @@ angular.module('myWebApp')
 
             var queryParams = {
                 id: $stateParams.id
+            };
+
+            var failed = function(msg) {
+                $scope.$emit('notify', {
+                    type: 'alert',
+                    msg: msg
+                });
             };
 
             $scope.posts = [];
@@ -89,14 +96,26 @@ angular.module('myWebApp')
                     .$promise.then(function() {
 
                         $location.path('/posts/' + $scope.posts[0]._id);
+                    }, function(resp) {
+                        $log.error(resp.data);
+                        failed(resp.data.error);
                     });
             };
         })
     .controller(
         'PostNewCtrl',
-        function($scope, $state, $location, post) {
+        function($scope, $log, $state, $location, post) {
 
-            $scope.posts = [{}];
+            var failed = function(msg) {
+                $scope.$emit('notify', {
+                    type: 'alert',
+                    msg: msg
+                });
+            };
+
+            $scope.posts = [{
+                created: (new Date()).toISOString()
+            }];
 
             $scope.create = function() {
 
@@ -108,6 +127,9 @@ angular.module('myWebApp')
                     .$promise.then(function(post) {
 
                         $location.path('/posts/' + post._id);
+                    }, function(resp) {
+                        $log.error(resp.data);
+                        failed(resp.data.error);
                     });
             };
         });

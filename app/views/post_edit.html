@@ -5,7 +5,7 @@
                 <ul>
                     <li>
                         <lable for="title">Title</lable>
-                        <input id="title" name="title" type="text" ng-model="post.title">
+                        <input id="title" name="title" type="text" ng-model="post.title" ng-required="post.title">
                     </li>
                     <li>
                         <lable for="title">Seo URL</lable>
@@ -16,11 +16,13 @@
                         <input id="banner" name="banner" type="text" ng-model="post.banner">
                         <img ng-show="post.banner && post.banner !== ''" ng-src="{{post.banner}}">
                     </li>
+                    <br>
                     <li>
                         <label for="preface">Preface</label>
                         <textarea id="post-preface" name="preface" style="display: none" ng-model="post.preface"></textarea>
                         <div id="epiceditor-post-preface"></div>
                     </li>
+                    <br>
                     <li>
                         <lable for="body">Body</lable>
                         <textarea id="post-body" name="body" style="display: none" ng-model="post.body"></textarea>

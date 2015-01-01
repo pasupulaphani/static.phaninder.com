@@ -9,10 +9,9 @@
               <img ng-show="post.banner && post.banner !== ''" ng-src="{{post.banner}}">
             </a>
             <br /><br />
-            <p ng-show="post.preface !== ''">
+            <div ng-show="post.preface !== ''">
               <span ng-bind-html="post.preface"></span>
-              <a href="#/posts/{{post._id}}/{{post.seo_url}}">Read more <span class="meta-nav">→</span></a>
-            </p>
+            </div>
           </li>
         </ul>
       </div>
