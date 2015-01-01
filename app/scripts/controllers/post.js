@@ -10,7 +10,7 @@
 angular.module('myWebApp')
     .controller(
         'PostCtrl',
-        function($scope, $stateParams, $state, $location, post, utils, $twt, id) {
+        function($scope, $stateParams, $state, $location, utils, post, id) {
 
             if (id === '') {
                 $state.go('404');
@@ -27,10 +27,14 @@ angular.module('myWebApp')
                     // populate data
                     $scope.posts = posts;
                     utils.markUp($scope.posts);
+                    $scope.posts[0].full_path = '/posts/' + $scope.posts[0]._id + '/' + $scope.posts[0].seo_url + '/';
+                    $scope.posts[0].fq_url = $location.protocol() + '://' + $location.host() +
+                        ($location.port() === 80 ? '' : ':' + $location.port()) +
+                        '/#' + $scope.posts[0].full_path;
 
-                    // instead use route resolve if not seo
+                        // instead use route resolve if not seo
                     if ($stateParams.seo_url !== $scope.posts[0].seo_url && $scope.posts[0].seo_url !== '') {
-                        $location.path('/posts/' + $scope.posts[0]._id + '/' + $scope.posts[0].seo_url + '/');
+                        $location.path($scope.posts[0].full_path);
                     }
                 });
 
@@ -45,16 +49,7 @@ angular.module('myWebApp')
                 });
             };
 
-            $scope.share = {
-                tpl: ['about', 'contact'].indexOf(id) === -1 ? 'social_sharing' : 'social_networking',
-                twt: function() {
-                    $twt.intent('tweet', {
-                        text: 'Adventures at NodeCoptor',
-                        url: 'http://localhost:9000/#/posts/sdfg3/undefined',
-                        hashtags: 'phaninder.com'
-                    });
-                }
-            };
+            $scope.share_tpl = ['about', 'contact'].indexOf(id) === -1 ? 'social_sharing' : 'social_networking';
 
         })
     .controller(
@@ -131,5 +126,21 @@ angular.module('myWebApp')
                         $log.error(resp.data);
                         failed(resp.data.error);
                     });
+            };
+        })
+    .controller(
+        'PostShare',
+        function($scope, $log, $twt) {
+
+            $scope.share = {
+                twt: function(title, url, hashtags) {
+                    hashtags = hashtags || '';
+                    hashtags = hashtags === '' ? hashtags.concat('phaninder.com') : hashtags.concat(',phaninder.com');
+                    $twt.intent('tweet', {
+                        text: title,
+                        url: url,
+                        hashtags: hashtags
+                    });
+                }
             };
         });

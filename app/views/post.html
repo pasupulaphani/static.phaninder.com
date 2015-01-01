@@ -12,5 +12,5 @@
         </div>
     </section>
     <div ng-include="'views/layout/post_admin.tpl.html'" ng-show="user.loggedIn"></div>
-    <div ng-include="'views/layout/' + share.tpl + '.tpl.html'"></div>
+    <div ng-controller="PostShare" ng-include="'views/layout/' + share_tpl + '.tpl.html'"></div>
 </div>
