@@ -26,13 +26,14 @@ angular.module('myWebApp')
 
                     // populate data
                     $scope.posts = posts;
-                    utils.markUp($scope.posts);
                     $scope.posts[0].full_path = '/posts/' + $scope.posts[0]._id + '/' + $scope.posts[0].seo_url + '/';
                     $scope.posts[0].fq_url = $location.protocol() + '://' + $location.host() +
                         ($location.port() === 80 ? '' : ':' + $location.port()) +
                         '/#' + $scope.posts[0].full_path;
 
-                        // instead use route resolve if not seo
+                    utils.markUp($scope.posts);
+
+                    // instead use route resolve if not seo
                     if ($stateParams.seo_url !== $scope.posts[0].seo_url && $scope.posts[0].seo_url !== '') {
                         $location.path($scope.posts[0].full_path);
                     }
@@ -135,7 +136,7 @@ angular.module('myWebApp')
             $scope.share = {
                 twt: function(title, url, hashtags) {
                     hashtags = hashtags || '';
-                    hashtags = hashtags === '' ? hashtags.concat('phaninder.com') : hashtags.concat(',phaninder.com');
+                    hashtags = hashtags === '' ? hashtags.concat('phaninderdotcom') : hashtags.concat(',phaninderdotcom');
                     $twt.intent('tweet', {
                         text: title,
                         url: url,

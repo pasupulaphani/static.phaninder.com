@@ -1,0 +1,29 @@
+<div class="row" ng-repeat="post in posts | limitTo:1"> <section role="main"> <div class="row post"> <div class="large-10 columns"> <ul> <li> <lable for="title">Title</lable> <input id="title" name="title" type="text" ng-model="post.title" ng-required="post.title"> </li> <li> <lable for="title">Seo URL</lable> <input id="seo_url" name="seo_url" type="text" ng-model="post.seo_url"> </li> <li> <lable for="banner">Banner</lable> <input id="banner" name="banner" type="text" ng-model="post.banner"> <img ng-show="post.banner && post.banner !== ''" ng-src="{{post.banner}}"> </li> <br> <li> <label for="preface">Preface</label> <textarea id="post-preface" name="preface" style="display: none" ng-model="post.preface"></textarea> <div id="epiceditor-post-preface"></div> </li> <br> <li> <lable for="body">Body</lable> <textarea id="post-body" name="body" style="display: none" ng-model="post.body"></textarea> <div id="epiceditor-post-body"></div> </li> <br> <li> <lable for="created">Created</lable> <input id="created" name="created" type="text" ui-date ng-model="post.created" value="{{post.created | date:'MM/dd/yyyy'}}"> </li> <br> <li ng-show="location.path() === '/posts/new/'"> <input class="tiny button" value="Create" ng-click="create()"> &nbsp;&nbsp;&nbsp; <a ng-href="#/posts/">Cancel</a> </li> <li ng-show="location.path() !== '/posts/new/'"> <input class="tiny button" value="Save" ng-click="save()"> &nbsp;&nbsp;&nbsp; <a ng-href="#/posts/{{post._id}}/{{post.seo_url}}">Cancel</a> </li> </ul> </div> </div> </section> </div> <!-- Epic editor stuff --> <script async defer src="https://cdnjs.cloudflare.com/ajax/libs/epiceditor/0.2.2/js/epiceditor.min.js"></script> <script>var opts_post_body = {
+    container: 'epiceditor-post-body',
+    textarea: 'post-body',
+    clientSideStorage: false,
+    localStorageName: 'epiceditor-post-body',
+    theme: {
+        base: 'https://cdnjs.cloudflare.com/ajax/libs/epiceditor/0.2.2/themes/base/epiceditor.css',
+        preview: 'https://cdnjs.cloudflare.com/ajax/libs/epiceditor/0.2.2/themes/preview/github.css',
+        editor: 'https://cdnjs.cloudflare.com/ajax/libs/epiceditor/0.2.2/themes/editor/epic-dark.css'
+    },
+    autogrow: true
+};
+
+var opts_post_preface = {
+    container: 'epiceditor-post-preface',
+    textarea: 'post-preface',
+    clientSideStorage: false,
+    localStorageName: 'epiceditor-post-preface',
+    theme: {
+        base: 'https://cdnjs.cloudflare.com/ajax/libs/epiceditor/0.2.2/themes/base/epiceditor.css',
+        preview: 'https://cdnjs.cloudflare.com/ajax/libs/epiceditor/0.2.2/themes/preview/github.css',
+        editor: 'https://cdnjs.cloudflare.com/ajax/libs/epiceditor/0.2.2/themes/editor/epic-dark.css'
+    },
+    autogrow: true
+};
+setTimeout(function() {
+    var editor_post_body = new EpicEditor(opts_post_body).load();
+    var editor_post_preface = new EpicEditor(opts_post_preface).load();
+}, 1200);</script> <!-- jquery ui styles --> <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css">
