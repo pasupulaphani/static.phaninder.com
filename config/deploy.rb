@@ -31,7 +31,13 @@ namespace :deploy do
   desc 'Restart nginx'
   task :restart do
   	on roles(:web), in: :groups, limit: 3, wait: 1 do
+      # stop
     	execute "sudo service nginx stop"
+
+      # purge cache
+      execute "find /var/cache/nginx -type f -delete"
+
+      # start
     	execute "sudo service nginx start"
     end
   end
