@@ -402,7 +402,7 @@ module.exports = function (grunt) {
         },
         values: {
           RESTapi: {
-            host: 'localhost:3000'
+            host: 'stage-api.phaninder.com'
           }
         }
       },
