@@ -23,7 +23,7 @@ namespace :git do
 
     if status != ""
      	puts "\nChanges stagged"
-     	status = %x(git add . )
+     	status = %x(git add . && git add -u)
 
   		puts "\nCommitting local changes"
   		puts "\nEnter commit message :"

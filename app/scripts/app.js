@@ -17,12 +17,9 @@ angular
         'ui.router',
         'ui.date',
         'socialsharing',
-        'csrf-cross-domain'
+        'csrf-cross-domain',
+        'config'
     ])
-
-.value('RESTapi', {
-    host: 'api.phaninder.com'
-})
 
 .constant('postTypes', {
     'U': 'Under construction',
@@ -33,7 +30,6 @@ angular
 
 .run(function($log, $window, $rootScope, $location, $state, auth, RESTapi) {
 
-    RESTapi.host = ($window.MODE || '').concat(RESTapi.host);
     RESTapi.url = $location.protocol() + '://' + RESTapi.host;
 
     // initialize foundation

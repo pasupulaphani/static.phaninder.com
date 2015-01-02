@@ -400,16 +400,30 @@ module.exports = function (grunt) {
         options: {
           dest: '<%= yeoman.app %>/scripts/config.js',
         },
-        constants: {
-          ENV: 'development'
+        values: {
+          RESTapi: {
+            host: 'localhost:3000'
+          }
+        }
+      },
+      staging: {
+        options: {
+          dest: '<%= yeoman.dist %>/scripts/config.js',
+        },
+        values: {
+          RESTapi: {
+            host: 'stage-api.phaninder.com'
+          }
         }
       },
       production: {
         options: {
           dest: '<%= yeoman.dist %>/scripts/config.js',
         },
-        constants: {
-          ENV: 'production'
+        values: {
+          RESTapi: {
+            host: 'api.phaninder.com'
+          }
         }
       }
     }    
@@ -417,11 +431,21 @@ module.exports = function (grunt) {
 
   grunt.registerTask('setConfig', 'Compile then start a connect web server', function (target) {
 
-    var target = grunt.option('target') || 'development';
+    var mode = grunt.option('mode') || '';
 
-    grunt.task.run([
-      'ngconstant:development'
-    ]);
+    switch(mode) {
+      case 'production':
+        grunt.task.run(['ngconstant:production']);
+        break;
+      case 'development':
+        grunt.task.run(['ngconstant:development']);
+        break;
+      case 'staging':
+        grunt.task.run(['ngconstant:staging']);
+        break;
+      default:
+        grunt.task.run(['ngconstant:development']);
+    }
   });
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {

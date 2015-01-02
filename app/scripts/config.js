@@ -2,6 +2,6 @@
 
 angular.module('config', [])
 
-.constant('ENV', 'development')
+.value('RESTapi', {host:'localhost:3000'})
 
 ;
