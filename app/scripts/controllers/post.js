@@ -93,8 +93,11 @@ angular.module('myWebApp')
 
                         $location.path('/posts/' + $scope.posts[0]._id);
                     }, function(resp) {
-                        $log.error(resp.data);
-                        failed(resp.data.error);
+
+                        if (resp && resp.data) {
+                            $log.error(resp.data);
+                            failed(resp.data.error);
+                        }
                     });
             };
 
@@ -126,8 +129,11 @@ angular.module('myWebApp')
 
                         $location.path('/posts/' + post._id);
                     }, function(resp) {
-                        $log.error(resp.data);
-                        failed(resp.data.error);
+
+                        if (resp && resp.data) {
+                            $log.error(resp.data);
+                            failed(resp.data.error);
+                        }
                     });
             };
 

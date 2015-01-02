@@ -22,11 +22,11 @@ angular.module('myWebApp')
         })
     .controller(
         'PostsSearchCtrl',
-        function($scope, $stateParams, $http, restEndPoint, utils) {
+        function($scope, $stateParams, $http, RESTapi, utils) {
 
             $scope.posts = [];
 
-            $http.get(restEndPoint + '/posts/', {
+            $http.get(RESTapi.url + '/posts/', {
                     params: {
                         status: $stateParams.status
                     }

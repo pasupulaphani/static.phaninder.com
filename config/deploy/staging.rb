@@ -1,3 +1,5 @@
 set :stage, :staging
 
-server '127.0.0.1', user: 'deploy', roles: %w{web app}, port: 2222
+set :app_mode, 'staging'
+
+server '134.213.153.219', user: 'root', roles: %w{web app}, port: 22

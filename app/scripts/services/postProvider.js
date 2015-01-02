@@ -12,8 +12,8 @@ angular.module('myWebApp')
     'post',
     function () {
 
-      this.$get = ['$resource', 'restEndPoint', function($resource, restEndPoint) {
-        var Post = $resource(restEndPoint + '/posts/:id/:seo_title', {id: '@id'}, {
+      this.$get = ['$resource', 'RESTapi', function($resource, RESTapi) {
+        var Post = $resource(RESTapi.url + '/posts/:id/:seo_title', {id: '@id'}, {
           update: {
             method: 'PUT'
           },

@@ -10,7 +10,7 @@
 angular.module('myWebApp')
     .factory(
         'auth',
-        function($log, $http, $q, restEndPoint) {
+        function($log, $http, $q, RESTapi) {
 
             var user = {
                 loggedIn: false,
@@ -18,7 +18,8 @@ angular.module('myWebApp')
             };
 
             var login = function(email, password) {
-                return $http.post(restEndPoint + '/login', {
+                return $http.post(RESTapi.url + '/login', {
+                        withCredentials: true,
                         email: email,
                         password: password
                     })
@@ -36,7 +37,7 @@ angular.module('myWebApp')
             };
 
             var getLoginStatus = function() {
-                return $http.get(restEndPoint + '/login')
+                return $http.get(RESTapi.url + '/login')
                     .then(function() {
                         user.loggedIn = true;
                         return true;
@@ -48,7 +49,7 @@ angular.module('myWebApp')
             };
 
             var logout = function() {
-                return $http.get(restEndPoint + '/logout')
+                return $http.get(RESTapi.url + '/logout')
                     .then(function() {
                         user.loggedIn = false;
                         return true;

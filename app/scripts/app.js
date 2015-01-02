@@ -20,7 +20,9 @@ angular
         'csrf-cross-domain'
     ])
 
-.constant('restEndPoint', 'http://localhost:3000')
+.value('RESTapi', {
+    host: 'api.phaninder.com'
+})
 
 .constant('postTypes', {
     'U': 'Under construction',
@@ -29,14 +31,17 @@ angular
     'M': 'MiscPublished'
 })
 
-.run(function($log, $rootScope, $location, $state, auth) {
+.run(function($log, $window, $rootScope, $location, $state, auth, RESTapi) {
+
+    RESTapi.host = ($window.MODE || '').concat(RESTapi.host);
+    RESTapi.url = $location.protocol() + '://' + RESTapi.host;
 
     // initialize foundation
     $rootScope.$on('$viewContentLoaded', function() {
+
         angular.element(document).ready(function() {
             angular.element(document).foundation();
         });
-
     });
 
     $rootScope.$on('$stateChangeStart', function(event, toState) {
