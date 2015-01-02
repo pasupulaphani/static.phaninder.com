@@ -455,7 +455,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
-      'ngconstant:development',
+      'setConfig',
       'wiredep',
       'concurrent:server',
       'autoprefixer',
@@ -471,7 +471,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'clean:server',
-    'ngconstant:development',
+    'setConfig',
     'concurrent:test',
     'autoprefixer',
     'connect:test',
