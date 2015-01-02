@@ -35,7 +35,7 @@ namespace :deploy do
     	execute "sudo service nginx stop"
 
       # purge cache
-      execute "find /var/cache/nginx -type f -delete", raise_on_non_zero_exit: false
+      execute "find /var/cache/sites_nginx/ -type f -delete", raise_on_non_zero_exit: false
 
       # start
     	execute "sudo service nginx start"
