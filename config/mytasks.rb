@@ -9,7 +9,7 @@ end
 namespace :grunt do
 	task :build do
 	  run_local("echo 'Starting Grunt build'")
-	  run_local("grunt build --target=#{fetch(:app_mode)}")
+	  run_local("grunt build --mode=#{fetch(:app_mode)}")
 	  run_local("echo 'Grunt build completed'")
 	end
 end
