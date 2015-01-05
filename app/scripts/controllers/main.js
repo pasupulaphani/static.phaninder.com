@@ -34,7 +34,7 @@ angular.module('myWebApp')
             $scope.notify.show = true;
         });
 
-        $rootScope.$on('$routeChangeStart', function() {
+        $rootScope.$on('$stateChangeStart', function() {
             $scope.notify.show = false;
         });
     });
