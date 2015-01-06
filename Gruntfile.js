@@ -402,7 +402,7 @@ module.exports = function (grunt) {
         },
         values: {
           RESTapi: {
-            host: 'stage-api.phaninder.com'
+            host: 'localhost:3000'
           }
         }
       },
@@ -429,7 +429,7 @@ module.exports = function (grunt) {
     }    
   });
 
-  grunt.registerTask('setConfig', 'Compile then start a connect web server', function (target) {
+  grunt.registerTask('setConfig', 'Compile then start a connect web server', function () {
 
     var mode = grunt.option('mode') || '';
 
