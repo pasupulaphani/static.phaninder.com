@@ -19,7 +19,6 @@ angular.module('myWebApp')
 
             var login = function(email, password) {
                 return $http.post(RESTapi.url + '/login', {
-                        withCredentials: true,
                         email: email,
                         password: password
                     })
