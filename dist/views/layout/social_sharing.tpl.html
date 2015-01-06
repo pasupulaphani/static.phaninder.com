@@ -1,10 +1,4 @@
-<section role="findme"> <div id="findme" class="row"> <div class="large-8 small-12 columns"> <h3>Share this post</h3> <ul class="inline-list"> <li style="margin-top: -6px"> <div class="tweet-button" ng-click="share.twt(post.title, post.fq_url)"> <a>Tweet</a> </div> </li> <li> <div data-annotation="none" data-href="{{post.fq_url}}" class="g-plus" data-action="share"></div> </li> <li style="margin-top: -2px"> <div class="fb-share-button" data-href="{{post.fq_url}}" data-layout="button"></div> </li> <li> <div class="g-plusone" data-href="{{post.fq_url}}" data-annotation="none" data-size="medium" data-width="300"></div> </li> <li style="margin-top: -2px"> <div class="fb-like" data-href="{{post.fq_url}}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div> </li> </ul> </div> </div> </section> <div id="fb-root"></div> <script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  // if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=204597356218806&version=v2.0";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script> <script type="text/javascript">// FB.XFBML.parse();
+<section role="findme"> <div id="findme" class="row"> <div class="large-8 small-12 columns"> <h3>Share this post</h3> <ul class="inline-list"> <li style="margin-top: -6px"> <div class="tweet-button" ng-click="share.twt(post.title, post.fq_url)"> <a>Tweet</a> </div> </li> <li> <div data-annotation="none" data-href="{{post.fq_url}}" class="g-plus" data-action="share"></div> </li> <li style="margin-top: -2px"> <div class="fb-share-button" data-href="{{post.fq_url}}" data-layout="button"></div> </li> <li> <div class="g-plusone" data-href="{{post.fq_url}}" data-annotation="none" data-size="medium" data-width="300"></div> </li> <li style="margin-top: -2px"> <div class="fb-like" data-href="{{post.fq_url}}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div> </li> </ul> </div> </div> </section> <script type="text/javascript">// FB.XFBML.parse();
 //- google+ like and share
 (function() {
     var po = document.createElement('script');
