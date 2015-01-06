@@ -186,7 +186,7 @@ angular
     });
 
     // socialsharing
-    $fbProvider.init(515239655250335);
+    $fbProvider.init(204597356218806);
 
     $twtProvider.setConfig({
         trim_text: true
