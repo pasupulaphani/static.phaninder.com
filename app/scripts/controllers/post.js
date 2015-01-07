@@ -24,36 +24,42 @@ angular.module('myWebApp')
                 })
                 .$promise.then(function(posts) {
 
-                    // populate data
-                    $scope.posts = posts;
-                    $scope.posts[0].full_path = '/posts/' + $scope.posts[0]._id + '/' + $scope.posts[0].seo_url + '/';
-                    $scope.posts[0].fq_url = $location.protocol() + '://' + $location.host() +
-                        ($location.port() === 80 ? '' : ':' + $location.port()) +
-                        '/#' + $scope.posts[0].full_path;
+                        // populate data
+                        $scope.posts = posts;
 
-                    utils.markUp($scope.posts);
+                        $scope.posts[0].full_path = '/posts/' + $scope.posts[0]._id + '/';
+
+                        if ($scope.posts[0].seo_url && $scope.posts[0].seo_url !== '') {
+                            $scope.posts[0].full_path = $scope.posts[0].full_path + $scope.posts[0].seo_url + '/';
+                    }
+
+                    $scope.posts[0].fq_url = $location.protocol() + '://' + $location.host() +
+                    ($location.port() === 80 ? '' : ':' + $location.port()) +
+                    '/#' + $scope.posts[0].full_path;
 
                     // instead use route resolve if not seo
                     if ($stateParams.seo_url !== $scope.posts[0].seo_url && $scope.posts[0].seo_url !== '') {
                         $location.path($scope.posts[0].full_path);
                     }
+
+                    utils.markUp($scope.posts);
                 });
 
-            $scope.setStatus = function(status) {
-                post.setStatus({
-                    id: id,
-                    status: status
-                }).$promise.then(function() {
+        $scope.setStatus = function(status) {
+            post.setStatus({
+                id: id,
+                status: status
+            }).$promise.then(function() {
 
-                    // success
-                    $scope.posts[0].status = status;
-                });
-            };
+                // success
+                $scope.posts[0].status = status;
+            });
+        };
 
-            $scope.share_tpl = ['about', 'contact'].indexOf(id) === -1 ? 'social_sharing' : 'social_networking';
+        $scope.share_tpl = ['about', 'contact'].indexOf(id) === -1 ? 'social_sharing' : 'social_networking';
 
-        })
-    .controller(
+    })
+.controller(
         'PostEditCtrl',
         function($scope, $log, $stateParams, $state, $location, utils, post) {
 
@@ -144,21 +150,23 @@ angular.module('myWebApp')
         function($scope, $log, $twt, $fb) {
 
             $scope.share = {
-                twt: function(title, url, hashtags) {
+                twt: function(title, text, url, hashtags) {
+
+                    text = text || '';
                     hashtags = hashtags || '';
                     hashtags = hashtags === '' ? hashtags.concat('phaninderdotcom') : hashtags.concat(',phaninderdotcom');
+
                     $twt.intent('tweet', {
-                        text: title,
+                        text: title.concat(text),
                         url: url,
                         hashtags: hashtags
                     });
                 },
                 fb: function(post) {
-                    console.warn(post)
                     $fb.feed({
                         name: post.title,
-                        description: post.short_desc || 'short desc',
-                        caption: "phaninder.com",
+                        description: post.short_desc,
+                        caption: 'phaninder blog',
                         link: post.fq_url,
                         picture: post.banner
                     });

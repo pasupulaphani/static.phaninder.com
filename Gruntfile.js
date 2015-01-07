@@ -69,42 +69,48 @@ module.exports = function (grunt) {
         port: 9000,
         // Change this to '0.0.0.0' to access the server from outside.
         hostname: 'localhost',
-        livereload: 35729
+        livereload: 35729,
+        // Modrewrite rule, connect.static(path) for each path in target's base
+        middleware: function (connect, options) {
+          var optBase = (typeof options.base === 'string') ? [options.base] : options.base,
+              middleware = [require('connect-modrewrite')(['!(\\..+)$ / [L]'])]
+                .concat(optBase.map(function (path) { 
+                  if (path.indexOf('rewrite|') === -1) {
+                    return connect.static(path);
+                  } else {
+                    path = path.replace(/\\/g, '/').split('|');
+                    return  connect().use(path[1], connect.static(path[2]))
+                  }
+                }));
+
+          return middleware;
+        }
       },
       livereload: {
         options: {
           open: true,
-          middleware: function (connect) {
-            return [
-              connect.static('.tmp'),
-              connect().use(
-                '/bower_components',
-                connect.static('./bower_components')
-              ),
-              connect.static(appConfig.app)
-            ];
-          }
+          base: [
+            '.tmp',
+            'rewrite|/bower_components|./bower_components',
+            'rewrite|/app/styles|./app/styles', // for sourcemaps
+            '<%= yeoman.app %>'
+          ]
         }
       },
       test: {
         options: {
           port: 9001,
-          middleware: function (connect) {
-            return [
-              connect.static('.tmp'),
-              connect.static('test'),
-              connect().use(
-                '/bower_components',
-                connect.static('./bower_components')
-              ),
-              connect.static(appConfig.app)
-            ];
-          }
+          base: [
+            '.tmp',
+            'test',
+            'rewrite|/bower_components|./bower_components',
+            'rewrite|/app/styles|./app/styles',
+            '<%= yeoman.app %>'
+          ]
         }
       },
       dist: {
         options: {
-          open: true,
           base: '<%= yeoman.dist %>'
         }
       }
