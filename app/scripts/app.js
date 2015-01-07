@@ -28,7 +28,9 @@ angular
     'M': 'MiscPublished'
 })
 
-.run(function($log, $window, $rootScope, $location, $state, auth, RESTapi) {
+.constant('FBAppId', 204597356218806)
+
+.run(function($log, $window, $rootScope, $location, $state, auth, RESTapi, FBAppId) {
 
     RESTapi.url = $location.protocol() + '://' + RESTapi.host;
 
@@ -68,14 +70,15 @@ angular
     $rootScope.me = {
         image: 'http://www.gravatar.com/avatar/da8ad3d7a783fda9082894427e6be2a9.png',
         description: 'Hi there! I\'m Phani. I live in London. I am a full stack developer who specializes in creating dynamic and beautiful web apps. I currently spend more time in developing new automation techniques for automating project life cycles of my mobile apps.',
-        twt_handler: 'PhaniPasupula'
+        twt_handler: 'PhaniPasupula',
+        FBAppId: FBAppId
     };
 
     auth.getLoginStatus();
 
 })
 
-.config(function($httpProvider, $urlRouterProvider, $stateProvider, $fbProvider, $twtProvider) {
+.config(function($httpProvider, $urlRouterProvider, $stateProvider, $fbProvider, $twtProvider, FBAppId) {
 
     // go to the notFound route on 404 API error:
     $httpProvider.interceptors.push(function($q, $injector) {
@@ -186,7 +189,7 @@ angular
     });
 
     // socialsharing
-    $fbProvider.init(204597356218806);
+    $fbProvider.init(FBAppId);
 
     $twtProvider.setConfig({
         trim_text: true

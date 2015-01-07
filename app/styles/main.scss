@@ -389,7 +389,7 @@ table.show-for-xlarge, table.show-for-large, table.hide-for-small, table.hide-fo
 }
 
 .tweet-button {
-  background-image: url(http://static.phaninder.com/images/twitter-bird-sprite-small.png);
+  background-image: url(/images/twitter-bird-sprite-small.png);
   background-repeat: no-repeat;
   background-position: 0 0;
   cursor: pointer;
@@ -432,4 +432,13 @@ table.show-for-xlarge, table.show-for-large, table.hide-for-small, table.hide-fo
   to {
     background-position: 0 -140px;
   }
+}
+
+.fb-button {
+  background-image: url(/images/FB-f-Logo__blue_29.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 25px 25px;
+  cursor: pointer;
+  padding: 7px 0 7px 40px;
 }

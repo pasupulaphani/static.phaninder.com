@@ -141,7 +141,7 @@ angular.module('myWebApp')
         })
     .controller(
         'PostShare',
-        function($scope, $log, $twt) {
+        function($scope, $log, $twt, $fb) {
 
             $scope.share = {
                 twt: function(title, url, hashtags) {
@@ -151,6 +151,16 @@ angular.module('myWebApp')
                         text: title,
                         url: url,
                         hashtags: hashtags
+                    });
+                },
+                fb: function(post) {
+                    console.warn(post)
+                    $fb.feed({
+                        name: post.title,
+                        description: post.short_desc || 'short desc',
+                        caption: "phaninder.com",
+                        link: post.fq_url,
+                        picture: post.banner
                     });
                 }
             };
