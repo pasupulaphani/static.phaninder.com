@@ -191,7 +191,6 @@ angular
     // socialsharing
     $fbProvider.init(FBAppId);
 
-    $twtProvider.setConfig({
-        trim_text: true
-    });
+    $twtProvider.init()
+        .trimText(true);
 });
