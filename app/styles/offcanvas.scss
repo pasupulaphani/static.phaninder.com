@@ -417,20 +417,21 @@ textarea {
         font-size: 1.80em;
     }
 }
-p code, div code {
-    margin-top: -25px;
+
+code {
+    border: 0!important;
 }
-.gist {
-    margin: 15px 0 !important;
+code.no-bg {
+    background-color: #ffffff;
 }
 .gist table {
     border: none !important;
 }
 .gist-file {
     border: none !important;
+    margin-bottom: 0em !important;
 }
 .gist-meta {
-    padding: 12px !important;
     -moz-border-radius-bottomleft: 10px;
     -webkit-border-bottom-left-radius: 10px;
     -moz-border-radius-bottomright: 10px;

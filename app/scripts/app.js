@@ -18,7 +18,8 @@ angular
         'ui.date',
         'socialsharing',
         'csrf-cross-domain',
-        'config'
+        'config',
+        'gist-embed'
     ])
 
 .constant('postTypes', {
@@ -34,12 +35,20 @@ angular
 
     RESTapi.url = $location.protocol() + '://' + RESTapi.host;
 
-    // initialize foundation
     $rootScope.$on('$viewContentLoaded', function() {
 
+        // initialize foundation
         angular.element(document).ready(function() {
             angular.element(document).foundation();
         });
+    });
+
+    $rootScope.$on('$includeContentLoaded', function(event) {
+
+        // initialize gist on new elements
+        // angular.element(document).ready(function() {
+        //     $('[data-gist-id]').gist();
+        // });
     });
 
     $rootScope.$on('$stateChangeStart', function(event, toState) {

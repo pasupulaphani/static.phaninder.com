@@ -24,18 +24,18 @@ angular.module('myWebApp')
                 })
                 .$promise.then(function(posts) {
 
-                        // populate data
-                        $scope.posts = posts;
+                    // populate data
+                    $scope.posts = posts;
 
-                        $scope.posts[0].full_path = '/posts/' + $scope.posts[0]._id + '/';
+                    $scope.posts[0].full_path = '/posts/' + $scope.posts[0]._id + '/';
 
-                        if ($scope.posts[0].seo_url && $scope.posts[0].seo_url !== '') {
-                            $scope.posts[0].full_path = $scope.posts[0].full_path + $scope.posts[0].seo_url + '/';
+                    if ($scope.posts[0].seo_url && $scope.posts[0].seo_url !== '') {
+                        $scope.posts[0].full_path = $scope.posts[0].full_path + $scope.posts[0].seo_url + '/';
                     }
 
                     $scope.posts[0].fq_url = $location.protocol() + '://' + $location.host() +
-                    ($location.port() === 80 ? '' : ':' + $location.port()) +
-                    '/#' + $scope.posts[0].full_path;
+                        ($location.port() === 80 ? '' : ':' + $location.port()) +
+                        '/#' + $scope.posts[0].full_path;
 
                     // instead use route resolve if not seo
                     if ($stateParams.seo_url !== $scope.posts[0].seo_url && $scope.posts[0].seo_url !== '') {
@@ -45,21 +45,21 @@ angular.module('myWebApp')
                     utils.markUp($scope.posts);
                 });
 
-        $scope.setStatus = function(status) {
-            post.setStatus({
-                id: id,
-                status: status
-            }).$promise.then(function() {
+            $scope.setStatus = function(status) {
+                post.setStatus({
+                    id: id,
+                    status: status
+                }).$promise.then(function() {
 
-                // success
-                $scope.posts[0].status = status;
-            });
-        };
+                    // success
+                    $scope.posts[0].status = status;
+                });
+            };
 
-        $scope.share_tpl = ['about', 'contact'].indexOf(id) === -1 ? 'social_sharing' : 'social_networking';
+            $scope.share_tpl = ['about', 'contact'].indexOf(id) === -1 ? 'social_sharing' : 'social_networking';
 
-    })
-.controller(
+        })
+    .controller(
         'PostEditCtrl',
         function($scope, $log, $stateParams, $state, $location, utils, post) {
 
@@ -172,4 +172,25 @@ angular.module('myWebApp')
                     });
                 }
             };
-        });
+        })
+    .directive('compile', ['$compile', function($compile) {
+        return function(scope, element, attrs) {
+            scope.$watch(
+                function(scope) {
+                    // watch the 'compile' expression for changes
+                    return scope.$eval(attrs.compile);
+                },
+                function(value) {
+                    // when the 'compile' expression changes
+                    // assign it into the current DOM
+                    element.html(value);
+
+                    // compile the new DOM and link it to the current
+                    // scope.
+                    // NOTE: we only compile .childNodes so that
+                    // we don't get into infinite loop compiling ourselves
+                    $compile(element.contents())(scope);
+                }
+            );
+        };
+    }]);
