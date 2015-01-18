@@ -79,7 +79,7 @@ module.exports = function (grunt) {
                     return connect.static(path);
                   } else {
                     path = path.replace(/\\/g, '/').split('|');
-                    return  connect().use(path[1], connect.static(path[2]))
+                    return  connect().use(path[1], connect.static(path[2]));
                   }
                 }));
 

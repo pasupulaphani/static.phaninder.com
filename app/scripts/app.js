@@ -43,14 +43,6 @@ angular
         });
     });
 
-    $rootScope.$on('$includeContentLoaded', function(event) {
-
-        // initialize gist on new elements
-        // angular.element(document).ready(function() {
-        //     $('[data-gist-id]').gist();
-        // });
-    });
-
     $rootScope.$on('$stateChangeStart', function(event, toState) {
 
         if (typeof toState.publicAccess !== 'undefined' && toState.publicAccess === false) {
@@ -87,7 +79,10 @@ angular
 
 })
 
-.config(function($httpProvider, $urlRouterProvider, $stateProvider, $fbProvider, $twtProvider, FBAppId) {
+.config(function($httpProvider, $urlRouterProvider, $locationProvider, $stateProvider, $fbProvider, $twtProvider, FBAppId) {
+
+    $locationProvider.html5Mode(true)
+        .hashPrefix('!');
 
     // go to the notFound route on 404 API error:
     $httpProvider.interceptors.push(function($q, $injector) {
