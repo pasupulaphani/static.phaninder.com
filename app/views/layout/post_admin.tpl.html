@@ -1,6 +1,6 @@
 <dl id="post-admin" role="main" class="sub-nav" style="padding-left: 35px;">
     <dd id="set-status">
-        <a href="" data-dropdown="statuslist" class="small secondary radius button dropdown">{{postTypes[post.status]}}</a>
+        <a ng-href="" data-dropdown="statuslist" class="small secondary radius button dropdown">{{postTypes[post.status]}}</a>
         <br>
         <ul id="statuslist" data-dropdown-content="data-dropdown-content" class="f-dropdown">
             <li ng-repeat="(type, desc) in postTypes" ng-if="type !== post.status">
@@ -9,7 +9,7 @@
         </ul>
 
     </dd>
-    <dd id="post-edit"><a ng-href="#/posts/{{post._id}}/edit" class="small secondary button">Edit Post</a>
+    <dd id="post-edit"><a ng-href="/posts/{{post._id}}/edit" class="small secondary button">Edit Post</a>
     </dd>
 
     <!-- This info is to just a fix to show dropdown buttons list-->

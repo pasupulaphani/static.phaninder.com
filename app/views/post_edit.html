@@ -40,11 +40,11 @@
                     <br>
                     <li ng-show="location.path() === '/posts/new/'">
                         <input class="tiny button" value="Create" ng-click="create()"> &nbsp;&nbsp;&nbsp;
-                        <a ng-href="#/posts/">Cancel</a>
+                        <a ng-href="/posts/">Cancel</a>
                     </li>
                     <li ng-show="location.path() !== '/posts/new/'">
                         <input class="tiny button" value="Save" ng-click="save()"> &nbsp;&nbsp;&nbsp;
-                        <a ng-href="#/posts/{{post._id}}/{{post.seo_url}}">Cancel</a>
+                        <a ng-href="/posts/{{post._id}}/{{post.seo_url}}">Cancel</a>
                     </li>
                 </ul>
             </div>

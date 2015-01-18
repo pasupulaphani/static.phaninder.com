@@ -14,11 +14,11 @@
                 <a href="javascript: void(0)">Posts</a>
                 <ul class="dropdown">
                     <li ng-repeat="(type, desc) in postTypes">
-                        <a ng-href="#/posts/status/{{type}}">{{desc}}</a>
+                        <a ng-href="/posts/status/{{type}}">{{desc}}</a>
                     </li>
                 </ul>
             </li>
-            <li class="has-form"><a ng-href="#/posts/new" value="New Post" class="button expand">New Post</a>
+            <li class="has-form"><a ng-href="/posts/new" value="New Post" class="button expand">New Post</a>
             </li>
         </ul>
     </section>

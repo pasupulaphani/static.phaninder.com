@@ -1,14 +1,14 @@
 <div class="large-10 small-10 columns footer-list">
     <ul class="inline-list">
-        <li><a href="#/" ng-class="{selected: location.path() === '/'}" title="Home">Home</a>
+        <li><a ng-href="/" ng-class="{selected: location.path() === '/'}" title="Home">Home</a>
         </li>
-        <li><a href="#/about" ng-class="{selected: location.path() === '/about/'}" title="About">About</a>
+        <li><a ng-href="/about" ng-class="{selected: location.path() === '/about/'}" title="About">About</a>
         </li>
-        <li><a href="#/posts" ng-class="{selected: location.path() === '/posts/'}" title="Posts">Posts</a>
+        <li><a ng-href="/posts" ng-class="{selected: location.path() === '/posts/'}" title="Posts">Posts</a>
         </li>
-        <li><a href="#/contact" ng-class="{selected: location.path() === '/contact/'}" title="Contact" class="email">Contact</a>
+        <li><a ng-href="/contact" ng-class="{selected: location.path() === '/contact/'}" title="Contact" class="email">Contact</a>
         </li>
-        <li><a href="http://twitter.com/{{me.twt_handler}}">@{{me.twt_handler}}</a>
+        <li><a ng-href="http://twitter.com/{{me.twt_handler}}">@{{me.twt_handler}}</a>
         </li>
     </ul>
 </div>
