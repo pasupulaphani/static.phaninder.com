@@ -32,6 +32,7 @@ module.exports = function(config) {
       'bower_components/EpicEditor/epiceditor/js/epiceditor.js',
       'bower_components/jquery-ui/jquery-ui.js',
       'bower_components/angular-ui-date/src/date.js',
+      'bower_components/angular-gist-embed/dist/angular-gist-embed.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'
