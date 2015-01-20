@@ -11,7 +11,7 @@
     <meta name="fragment" content="!">
     <base href="/">
 
-    <title ng-bind="site.name">phaninder.com</title>
+    <title ng-bind="page.title">phaninder.com</title>
 
     <link type="text/plain" rel="author" href="/humans.txt">
     <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico'>
@@ -28,28 +28,28 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <!-- FB api and open graph -->
-<!--     <meta property="fb:app_id" content="{{me.FBAppId}}">
-    <meta property="og:title" content="{{post.title}}">
-    <meta property="og:description" content={{post.foreword}}>
+    <meta property="fb:app_id" content="{{page.FBAppId}}">
+    <meta property="og:title" content="{{page.title}}">
+    <meta property="og:description" content={{page.short_desc}}>
     <meta property="og:type" content="blog">
-    <meta property="og:url" content="{{site.url}}">
+    <meta property="og:url" content="{{page.url}}">
     <meta property="og:image" content="{{me.image}}">
-    <meta property="og:site_name" content="{{site.name}}"> -->
+    <meta property="og:site_name" content="phaninder.com">
 
     <!-- twitter card -->
-<!--     <meta property="twitter:account_id" content="205844733">
+    <meta property="twitter:account_id" content="205844733">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@pasupulaphani">
-    <meta name="twitter:title" content="phaninder.com">
-    <meta name="twitter:description" content={{me.description}}>
+    <meta name="twitter:title" content="{{page.title}}">
+    <meta name="twitter:description" content={{page.short_desc}}>
     <meta name="twitter:creator" content="@pasupulaphani">
     <meta name="twitter:image:src" content="{{me.image}}">
-    <meta name="twitter:domain" content="phaninder.com"> -->
+    <meta name="twitter:domain" content="phaninder.com">
 
     <!-- g+ card -->
-<!--     <meta itemprop="name" content="phaninder.com">
-    <meta itemprop="description" content={{me.description}}>
-    <meta itemprop="image" content="{{me.image}}"> -->
+    <meta itemprop="name" content="{{page.title}}">
+    <meta itemprop="description" content={{page.short_desc}}>
+    <meta itemprop="image" content="{{me.image}}">
 
 
     <link rel="canonical" href="{{url}}" />

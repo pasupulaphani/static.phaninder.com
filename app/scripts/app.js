@@ -61,18 +61,22 @@ angular
 
     $rootScope.location = $location;
 
-    $rootScope.site = {
-        name: 'phaninder.com',
-        url: encodeURIComponent(document.URL),
-        short_url: document.URL
-    };
-
     // set some common content
     $rootScope.me = {
         image: 'http://www.gravatar.com/avatar/da8ad3d7a783fda9082894427e6be2a9.png',
         description: 'Hi there! I\'m Phani. I live in London. I am a full stack developer who specializes in creating dynamic and beautiful web apps. I currently spend more time in developing new automation techniques for automating project life cycles of my mobile apps.',
-        twt_handler: 'PhaniPasupula',
-        FBAppId: FBAppId
+        twt_handler: 'PhaniPasupula'
+    };
+
+    $rootScope.page = {
+        title: 'phaninder.com',
+        url: encodeURIComponent(document.URL),
+        short_url: document.URL,
+        FBAppId: FBAppId,
+        post: {
+            title: 'to_set_title',
+            short_desc: 'to_set_short_desc'
+        }
     };
 
     auth.getLoginStatus();
