@@ -148,6 +148,9 @@ form #post-search-input {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
     width: 630px;
 }
+.posts img {
+    margin-top: 10px;
+}
 .posts li:before {
     content: "";
     display: block;
