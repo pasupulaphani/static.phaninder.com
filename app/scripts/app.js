@@ -83,10 +83,15 @@ angular
 
 })
 
-.config(function($httpProvider, $urlRouterProvider, $locationProvider, $stateProvider, $fbProvider, $twtProvider, FBAppId) {
+.config(function($provide, $httpProvider, $urlRouterProvider, $locationProvider, $stateProvider, $fbProvider, $twtProvider, FBAppId) {
 
     $locationProvider.html5Mode(true)
         .hashPrefix('!');
+
+    $provide.decorator('$sniffer', function($delegate) {
+        $delegate.history = false;
+        return $delegate;
+    });
 
     // go to the notFound route on 404 API error:
     $httpProvider.interceptors.push(function($q, $injector) {
