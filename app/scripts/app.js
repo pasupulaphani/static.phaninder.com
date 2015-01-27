@@ -88,10 +88,10 @@ angular
     $locationProvider.html5Mode(true)
         .hashPrefix('!');
 
-    $provide.decorator('$sniffer', function($delegate) {
-        $delegate.history = false;
-        return $delegate;
-    });
+    // $provide.decorator('$sniffer', function($delegate) {
+    //     $delegate.history = false;
+    //     return $delegate;
+    // });
 
     // go to the notFound route on 404 API error:
     $httpProvider.interceptors.push(function($q, $injector) {
@@ -114,7 +114,7 @@ angular
         var path = $location.url();
 
         // check to see if the path already has a slash where it should be
-        if (path[path.length - 1] === '/' || path.indexOf('/?') > -1) {
+        if (path[path.length - 1] === '/' || path.indexOf('/?') > -1 || path.indexOf('#%2F') > -1) {
             return;
         }
 
