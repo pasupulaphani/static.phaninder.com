@@ -66,6 +66,11 @@
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     <link rel="stylesheet" type="text/css" href="styles/offcanvas.css">
     <!-- endbuild -->
+
+    <!--proxy to make CORS req in < IE10-->
+    <!--[if lte IE 9]>
+        <script src="//cdn.rawgit.com/jpillora/xdomain/0.6.17/dist/xdomain.min.js" slave="http://api.phaninder.com/proxy.html"></script>
+    <![endif]-->
 </head>
 
 <body id="page" class="off-canvas hide-extras" ng-controller="MainCtrl">
