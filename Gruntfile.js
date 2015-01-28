@@ -407,7 +407,7 @@ module.exports = function (grunt) {
         },
         values: {
           RESTapi: {
-            host: 'localhost:3000'
+            host: 'api.local-phaninder.com'
           }
         }
       },

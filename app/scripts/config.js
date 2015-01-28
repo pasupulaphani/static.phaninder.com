@@ -2,6 +2,6 @@
 
 angular.module('config', [])
 
-.value('RESTapi', {host:'localhost:3000'})
+.value('RESTapi', {host:'api.local-phaninder.com'})
 
 ;
