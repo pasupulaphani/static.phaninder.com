@@ -23,7 +23,7 @@ angular.module('myWebApp')
                         password: password
                     })
                     .then(function() {
-                        $log.info('logged in successfully');
+                        $log.info('log in successfully');
                         user.loggedIn = true;
                         return true;
                     })
