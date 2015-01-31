@@ -69,7 +69,12 @@
 
     <!--proxy to make CORS req in < IE10-->
     <!--[if lte IE 9]>
-        <script src="//cdn.rawgit.com/jpillora/xdomain/0.6.17/dist/xdomain.min.js" slave="http://api.phaninder.com/proxy.html"></script>
+        <script src="//cdn.rawgit.com/jpillora/xdomain/0.6.17/dist/xdomain.min.js"></script>
+        <script>
+            xdomain.slaves({
+                'http://api.phaninder.com': '/proxy.html'
+            });
+        </script>
     <![endif]-->
 </head>
 
