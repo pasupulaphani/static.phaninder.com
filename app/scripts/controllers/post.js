@@ -42,6 +42,7 @@ angular.module('myWebApp')
                         $location.path($scope.posts[0].full_path);
                     }
 
+                    $scope.$emit('setPageInfo', posts[0]);
                     utils.markUp($scope.posts);
                 });
 

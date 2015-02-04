@@ -8,7 +8,7 @@
  * Controller of the myWebApp
  */
 angular.module('myWebApp')
-    .controller('MainCtrl', function($rootScope, $scope, $location, postTypes, auth) {
+    .controller('MainCtrl', function($rootScope, $scope, $location, pageInfo, postTypes, auth) {
 
         // bind data
         $scope.user = auth.user;
@@ -35,6 +35,23 @@ angular.module('myWebApp')
         });
 
         $rootScope.$on('$stateChangeStart', function() {
+            // clear notification
             $scope.notify.show = false;
+        });
+
+        // set pageInfo
+        $scope.$on('setPageInfo', function(event, post) {
+            $rootScope.pageInfo.title = post.title;
+            $rootScope.pageInfo.image = post.banner || $rootScope.pageInfo.image;
+            $rootScope.pageInfo.desc = post.preface || $rootScope.pageInfo.desc;
+            $rootScope.pageInfo.short_desc = post.short_desc || $rootScope.pageInfo.short_desc;
+
+            var url = $location.protocol() + '://' + $location.host() + '/posts/' + post._id + '/';
+            $rootScope.pageInfo.short_url = encodeURIComponent(url);
+
+            if (post.seo_url && post.seo_url !== '') {
+                url = url + post.seo_url + '/';
+            }
+            $rootScope.pageInfo.url = encodeURIComponent(url);
         });
     });

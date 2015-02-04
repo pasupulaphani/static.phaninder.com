@@ -11,15 +11,16 @@
     <meta name="fragment" content="!">
     <base href="/">
 
-    <title ng-bind="page.title">phaninder.com</title>
+    <title ng-bind="pageInfo.title">phaninder.com</title>
 
+    <link rel="canonical" href="{{pageInfo.url}}" />
     <link type="text/plain" rel="author" href="/humans.txt">
     <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico'>
     <link rel="apple-touch-icon" href="/custom_icon.png">
 
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="keywords" content="phaninder, pasupulaphani, phani">
-    <meta name="description" content="My findings and ramblings about tech">
+    <meta name="description" content="{{pageInfo.short_desc}}">
     <meta name="author" content="Phaninder Pasupula">
     <meta name="copyright" content="© Copyright 2012 to Present">
     <meta name="HandheldFriendly" content="True">
@@ -28,31 +29,28 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <!-- FB api and open graph -->
-    <meta property="fb:app_id" content="{{page.FBAppId}}">
-    <meta property="og:title" content="{{page.title}}">
-    <meta property="og:description" content={{page.short_desc}}>
+    <meta property="fb:app_id" content="{{FBAppId}}">
+    <meta property="og:title" content="{{pageInfo.title}}">
+    <meta property="og:description" content="{{pageInfo.short_desc}}">
     <meta property="og:type" content="blog">
-    <meta property="og:url" content="{{page.url}}">
-    <meta property="og:image" content="{{me.image}}">
+    <meta property="og:url" content="{{pageInfo.url}}">
+    <meta property="og:image" content="{{pageInfo.image}}">
     <meta property="og:site_name" content="phaninder.com">
 
     <!-- twitter card -->
     <meta property="twitter:account_id" content="205844733">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@pasupulaphani">
-    <meta name="twitter:title" content="{{page.title}}">
-    <meta name="twitter:description" content={{page.short_desc}}>
+    <meta name="twitter:title" content="{{pageInfo.title}}">
+    <meta name="twitter:description" content="{{pageInfo.short_desc}}">
     <meta name="twitter:creator" content="@pasupulaphani">
-    <meta name="twitter:image:src" content="{{me.image}}">
+    <meta name="twitter:image:src" content="{{pageInfo.image}}">
     <meta name="twitter:domain" content="phaninder.com">
 
     <!-- g+ card -->
-    <meta itemprop="name" content="{{page.title}}">
-    <meta itemprop="description" content={{page.short_desc}}>
-    <meta itemprop="image" content="{{me.image}}">
-
-
-    <link rel="canonical" href="{{url}}" />
+    <meta itemprop="name" content="{{pageInfo.title}}">
+    <meta itemprop="description" content={{pageInfo.short_desc}}>
+    <meta itemprop="image" content="{{pageInfo.image}}">
 
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
