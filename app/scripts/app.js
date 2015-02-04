@@ -29,7 +29,7 @@ angular
     'M': 'MiscPublished'
 })
 
-.constant('FBAppId', 204597356218806)
+.constant('FBAppId', 515239655250335)
 
 .value('pageInfo', {
     title: 'phaninder.com',

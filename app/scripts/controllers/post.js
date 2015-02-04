@@ -35,7 +35,7 @@ angular.module('myWebApp')
 
                     $scope.posts[0].fq_url = $location.protocol() + '://' + $location.host() +
                         ($location.port() === 80 ? '' : ':' + $location.port()) +
-                        '/#' + $scope.posts[0].full_path;
+                        $scope.posts[0].full_path;
 
                     // instead use route resolve if not seo
                     if ($stateParams.seo_url !== $scope.posts[0].seo_url && $scope.posts[0].seo_url !== '') {
