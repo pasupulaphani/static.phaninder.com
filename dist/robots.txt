@@ -2,11 +2,11 @@
 
 User-agent: *
 Disallow: 
-Disallow: /login/
-Disallow: /posts/status/
-Disallow: /posts/status/*/
-Disallow: /posts/new/
-Disallow: /posts/*/edit/
-Disallow: /posts/*/*/edit/
+Disallow: /login
+Disallow: /posts/status
+Disallow: /posts/status/*
+Disallow: /posts/new
+Disallow: /posts/*/edit
+Disallow: /posts/*/*/edit
 
 Sitemap: http://phaninder.com/sitemap.xml

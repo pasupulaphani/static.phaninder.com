@@ -27,10 +27,10 @@ angular.module('myWebApp')
                     // populate data
                     $scope.posts = posts;
 
-                    $scope.posts[0].full_path = '/posts/' + $scope.posts[0]._id + '/';
+                    $scope.posts[0].full_path = '/posts/' + $scope.posts[0]._id;
 
                     if ($scope.posts[0].seo_url && $scope.posts[0].seo_url !== '') {
-                        $scope.posts[0].full_path = $scope.posts[0].full_path + $scope.posts[0].seo_url + '/';
+                        $scope.posts[0].full_path = $scope.posts[0].full_path + '/' + $scope.posts[0].seo_url;
                     }
 
                     $scope.posts[0].fq_url = $location.protocol() + '://' + $location.host() +
