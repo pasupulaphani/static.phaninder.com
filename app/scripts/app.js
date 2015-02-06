@@ -147,7 +147,7 @@ angular
             publicAccess: false
         })
         .state('post', {
-            url: '/posts/{id}{seo_title:(?:/[^/]+)?}/',
+            url: '/posts/{id}{seo_title:(?:/[^/]+)?}',
             templateUrl: 'views/post.html',
             controller: 'PostCtrl',
             resolve: {
