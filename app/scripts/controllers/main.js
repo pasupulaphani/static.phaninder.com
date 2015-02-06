@@ -46,12 +46,12 @@ angular.module('myWebApp')
             $rootScope.pageInfo.desc = post.preface || $rootScope.pageInfo.desc;
             $rootScope.pageInfo.short_desc = post.short_desc || $rootScope.pageInfo.short_desc;
 
-            var url = $location.protocol() + '://' + $location.host() + '/posts/' + post._id + '/';
-            $rootScope.pageInfo.short_url = encodeURIComponent(url);
+            var url = $location.protocol() + '://' + $location.host() + '/posts/' + post._id;
+            $rootScope.pageInfo.short_url = url;
 
             if (post.seo_url && post.seo_url !== '') {
-                url = url + post.seo_url + '/';
+                url = url + '/' + post.seo_url;
             }
-            $rootScope.pageInfo.url = encodeURIComponent(url);
+            $rootScope.pageInfo.canonical_url = url;
         });
     });

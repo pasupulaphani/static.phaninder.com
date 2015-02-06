@@ -36,8 +36,8 @@ angular
     image: 'http://www.gravatar.com/avatar/da8ad3d7a783fda9082894427e6be2a9.png',
     desc: 'My findings and ramblings about tech',
     short_desc: 'My findings and ramblings about tech',
-    url: encodeURIComponent(document.URL),
-    short_url: encodeURIComponent(document.URL),
+    canonical_url: 'http://phaninder.com/posts',
+    short_url: 'http://phaninder.com/posts',
     twt_handler: 'PhaniPasupula'
 })
 
@@ -76,7 +76,7 @@ angular
     auth.getLoginStatus();
 })
 
-.config(function($provide, $httpProvider, $urlRouterProvider, $locationProvider, $stateProvider, $fbProvider, $twtProvider, FBAppId) {
+.config(function($provide, $httpProvider, $urlRouterProvider, $urlMatcherFactoryProvider, $locationProvider, $stateProvider, $fbProvider, $twtProvider, FBAppId) {
 
     $locationProvider.html5Mode(true)
         .hashPrefix('!');
@@ -96,52 +96,34 @@ angular
     // default to posts
     $urlRouterProvider.when('/', '/posts');
 
-    // https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions\
-    //#how-to-make-a-trailing-slash-optional-for-all-routes
-    $urlRouterProvider.rule(function($injector, $location) {
-        var path = $location.url();
+    // go easy on trailing slash
+    $urlMatcherFactoryProvider.strictMode(false);
 
-        // check to see if the path already has a slash where it should be
-        if (path[path.length - 1] === '/' || path.indexOf('/?') > -1) {
-            return;
-        }
-
-        if (path.indexOf('?') > -1) {
-            return path.replace('?', '/?');
-        }
-
-        if (path.indexOf('#') > -1) {
-            return;
-        }
-        return path + '/';
-    });
-
-    // make sure that all paths end with trailing spaces (this is because of above assumption)
     $stateProvider
         .state('login', {
-            url: '/login/',
+            url: '/login',
             templateUrl: 'views/login.html',
             controller: 'LoginCtrl'
         })
         .state('posts', {
-            url: '/posts/',
+            url: '/posts',
             templateUrl: 'views/posts.html',
             controller: 'PostsCtrl'
         })
         .state('posts_status_filter', {
-            url: '/posts/status/:status/',
+            url: '/posts/status/:status',
             templateUrl: 'views/posts.html',
             controller: 'PostsSearchCtrl',
             publicAccess: false
         })
         .state('post_new', {
-            url: '/posts/new/',
+            url: '/posts/new',
             templateUrl: 'views/post_edit.html',
             controller: 'PostNewCtrl',
             publicAccess: false
         })
         .state('post_edit', {
-            url: '/posts/{id}{seo_title:(?:/[^/]+)?}/edit/',
+            url: '/posts/{id}{seo_title:(?:/[^/]+)?}/edit',
             templateUrl: 'views/post_edit.html',
             controller: 'PostEditCtrl',
             publicAccess: false
@@ -157,7 +139,7 @@ angular
             }
         })
         .state('about', {
-            url: '/about/',
+            url: '/about',
             templateUrl: 'views/post.html',
             controller: 'PostCtrl',
             resolve: {
@@ -167,7 +149,7 @@ angular
             }
         })
         .state('contact', {
-            url: '/contact/',
+            url: '/contact',
             templateUrl: 'views/post.html',
             controller: 'PostCtrl',
             resolve: {
