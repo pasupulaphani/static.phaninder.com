@@ -41,17 +41,21 @@ angular.module('myWebApp')
 
         // set pageInfo
         $scope.$on('setPageInfo', function(event, post) {
-            $rootScope.pageInfo.title = post.title;
-            $rootScope.pageInfo.image = post.banner || $rootScope.pageInfo.image;
-            $rootScope.pageInfo.desc = post.preface || $rootScope.pageInfo.desc;
-            $rootScope.pageInfo.short_desc = post.short_desc || $rootScope.pageInfo.short_desc;
+            if(!post) {
+                $rootScope.pageInfo = pageInfo;
+            } else {
+                $rootScope.pageInfo.title = post.title;
+                $rootScope.pageInfo.image = post.banner || pageInfo.image;
+                $rootScope.pageInfo.desc = post.preface || pageInfo.desc;
+                $rootScope.pageInfo.short_desc = post.short_desc || pageInfo.short_desc;
 
-            var url = $location.protocol() + '://' + $location.host() + '/posts/' + post._id;
-            $rootScope.pageInfo.short_url = url;
+                var url = $location.protocol() + '://' + $location.host() + '/posts/' + post._id;
+                $rootScope.pageInfo.short_url = url;
 
-            if (post.seo_url && post.seo_url !== '') {
-                url = url + '/' + post.seo_url;
+                if (post.seo_url && post.seo_url !== '') {
+                    url = url + '/' + post.seo_url;
+                }
+                $rootScope.pageInfo.canonical_url = url;   
             }
-            $rootScope.pageInfo.canonical_url = url;
         });
     });
