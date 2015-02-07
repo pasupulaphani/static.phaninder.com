@@ -10,10 +10,10 @@
     </div>
 
     <div id="header-nav" class="sub-nav large-3 medium-3 small-3 columns">
-        <a ng-href="/about" class="fi-torso-business size-24" ng-class="{selected: location.path() === '/about/'}" title="About">
+        <a ng-href="/about" class="fi-torso-business size-24" ng-class="{selected: /^\/about\/?$/.test(location.path())}" title="About">
             <span>About</span>
         </a>
-        <a ng-href="/posts" class="fi-page-multiple size-24" ng-class="{selected: location.path() === '/posts/'}" title="Posts">
+        <a ng-href="/posts" class="fi-page-multiple size-24" ng-class="{selected: /^\/posts\/?$/.test(location.path())}" title="Posts">
             <span>Posts</span>
         </a>
         <a ng-show="false" id="sidebarButton" ng-href="#sidebar" class="fi-page-search size-36"></a>
