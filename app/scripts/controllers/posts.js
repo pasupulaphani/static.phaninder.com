@@ -33,6 +33,7 @@ angular.module('myWebApp')
                 })
                 .then(function(resp) {
                     $scope.posts = resp.data;
+                    $scope.$emit('setPageInfo');
                     utils.markUp($scope.posts);
                 });
 
