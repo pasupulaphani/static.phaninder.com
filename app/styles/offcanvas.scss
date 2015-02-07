@@ -425,10 +425,9 @@ textarea {
     }
 }
 code {
-    border: 0!important;
-    background-color: #ffffff;
+    border: 0;
 }
-code.no-bg {
+code.no-bg, code#data-gist-id {
     background-color: #ffffff;
 }
 .gist table {
