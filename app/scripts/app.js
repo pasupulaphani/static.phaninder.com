@@ -22,6 +22,10 @@ angular
         'gist-embed'
     ])
 
+.factory('_', function() {
+    return window._;
+})
+
 .constant('postTypes', {
     'U': 'Under construction',
     'P': 'Published',
@@ -41,7 +45,7 @@ angular
     twt_handler: 'PhaniPasupula'
 })
 
-.run(function($log, $window, $rootScope, $location, $state, auth, RESTapi, FBAppId, pageInfo) {
+.run(function($log, $window, $rootScope, $location, $state, _, auth, RESTapi, FBAppId, pageInfo) {
 
     RESTapi.url = $location.protocol() + '://' + RESTapi.host;
 
@@ -71,7 +75,7 @@ angular
 
     $rootScope.location = $location;
     $rootScope.FBAppId = FBAppId;
-    $rootScope.pageInfo = pageInfo;
+    $rootScope.pageInfo = _.clone(pageInfo);
 
     auth.getLoginStatus();
 })

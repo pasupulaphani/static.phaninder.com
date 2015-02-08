@@ -16,6 +16,7 @@ angular.module('myWebApp')
             post.query()
                 .$promise.then(function(posts) {
                     $scope.posts = posts;
+                    $scope.$emit('setPageInfo');
                     utils.markUp($scope.posts);
                 });
 

@@ -8,7 +8,7 @@
  * Controller of the myWebApp
  */
 angular.module('myWebApp')
-    .controller('MainCtrl', function($rootScope, $scope, $location, pageInfo, postTypes, auth) {
+    .controller('MainCtrl', function($rootScope, $scope, $location, _, pageInfo, postTypes, auth) {
 
         // bind data
         $scope.user = auth.user;
@@ -41,13 +41,16 @@ angular.module('myWebApp')
 
         // set pageInfo
         $scope.$on('setPageInfo', function(event, post) {
-            if(!post) {
-                $rootScope.pageInfo = pageInfo;
+
+            var temp = _.clone(pageInfo);
+
+            if (typeof post === 'undefined') {
+                $rootScope.pageInfo = temp;
             } else {
                 $rootScope.pageInfo.title = post.title;
-                $rootScope.pageInfo.image = post.banner || pageInfo.image;
-                $rootScope.pageInfo.desc = post.preface || pageInfo.desc;
-                $rootScope.pageInfo.short_desc = post.short_desc || pageInfo.short_desc;
+                $rootScope.pageInfo.image = post.banner || temp.image;
+                $rootScope.pageInfo.desc = post.preface || temp.desc;
+                $rootScope.pageInfo.short_desc = post.short_desc || temp.short_desc;
 
                 var url = $location.protocol() + '://' + $location.host() + '/posts/' + post._id;
                 $rootScope.pageInfo.short_url = url;
@@ -55,7 +58,7 @@ angular.module('myWebApp')
                 if (post.seo_url && post.seo_url !== '') {
                     url = url + '/' + post.seo_url;
                 }
-                $rootScope.pageInfo.canonical_url = url;   
+                $rootScope.pageInfo.canonical_url = url;
             }
         });
     });
