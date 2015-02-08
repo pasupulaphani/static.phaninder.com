@@ -427,7 +427,7 @@ textarea {
 code {
     border: 0;
 }
-code.no-bg, code#data-gist-id {
+code.no-bg, code[data-gist-id] {
     background-color: #ffffff;
 }
 .gist table {
