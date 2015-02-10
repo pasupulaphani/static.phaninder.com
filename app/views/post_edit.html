@@ -42,11 +42,11 @@
                         <input id="created" name="created" type="text" ui-date ng-model="post.created" value="{{post.created | date:'MM/dd/yyyy'}}">
                     </li>
                     <br>
-                    <li ng-show="location.path() === '/posts/new/'">
+                    <li ng-show="['/posts/new/', '/posts/new'].indexOf(location.path()) !== -1">
                         <input class="tiny button" value="Create" ng-click="create()"> &nbsp;&nbsp;&nbsp;
                         <a ng-href="/posts/">Cancel</a>
                     </li>
-                    <li ng-show="location.path() !== '/posts/new/'">
+                    <li ng-show="['/posts/new/', '/posts/new'].indexOf(location.path()) === -1">
                         <input class="tiny button" value="Save" ng-click="save()"> &nbsp;&nbsp;&nbsp;
                         <a ng-href="/posts/{{post._id}}/{{post.seo_url}}">Cancel</a>
                     </li>
