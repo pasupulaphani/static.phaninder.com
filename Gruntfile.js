@@ -408,7 +408,8 @@ module.exports = function (grunt) {
         values: {
           RESTapi: {
             host: 'api.local-phaninder.com'
-          }
+          },
+          staticURL: 'http://local-phaninder.com'
         }
       },
       staging: {
@@ -418,7 +419,8 @@ module.exports = function (grunt) {
         values: {
           RESTapi: {
             host: 'stage-api.phaninder.com'
-          }
+          },
+          staticURL: 'http://static.phaninder.com'
         }
       },
       production: {
@@ -428,7 +430,8 @@ module.exports = function (grunt) {
         values: {
           RESTapi: {
             host: 'api.phaninder.com'
-          }
+          },
+          staticURL: 'http://static.phaninder.com'
         }
       }
     }    

@@ -102,6 +102,26 @@ header h2 {
     opacity: 0.6;
     color: #1D78BD;
 }
+.profile {
+    left: -90px;
+    margin-top: 30px;
+    margin-left: -400px;
+}
+.profile a {
+    text-decoration: none;
+    padding: 0 !important;
+}
+.profile a span {
+    font: 80% Arial, sans-serif;
+}
+.profile a span img, .profile a span i {
+    vertical-align: middle;
+}
+.right-nav {
+    float: right;
+    position: relative;
+    float: right;
+}
 form #post-search-input {
     background: #fff url("../../../images/search_icon5.png") no-repeat 5px 5px;
     font-size: 100%;

@@ -45,7 +45,7 @@ angular
     twt_handler: 'PhaniPasupula'
 })
 
-.run(function($log, $window, $rootScope, $location, $state, _, auth, RESTapi, FBAppId, pageInfo) {
+.run(function($log, $window, $rootScope, $location, $state, _, auth, RESTapi, staticURL, FBAppId, pageInfo) {
 
     RESTapi.url = $location.protocol() + '://' + RESTapi.host;
 
@@ -75,6 +75,7 @@ angular
 
     $rootScope.location = $location;
     $rootScope.FBAppId = FBAppId;
+    $rootScope.staticURL = staticURL;
     $rootScope.pageInfo = _.clone(pageInfo);
 
     auth.getLoginStatus();
