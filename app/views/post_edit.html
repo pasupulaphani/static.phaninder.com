@@ -4,6 +4,10 @@
             <div class="large-10 columns">
                 <ul>
                     <li>
+                        <lable for="title">_id <span data-tooltip aria-haspopup="true" class="has-tip" data-options="show_on:large" title="Once created cannot change _id, create a new one and remove this">(hover on me)</span></lable>
+                        <input id="_id" name="_id" type="text" ng-model="post._id" ng-disabled="['/posts/new', '/posts/new/'].indexOf(location.path()) === -1">
+                    </li>
+                    <li>
                         <lable for="title">Title</lable>
                         <input id="title" name="title" type="text" ng-model="post.title" ng-required="post.title">
                     </li>
