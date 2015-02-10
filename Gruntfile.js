@@ -242,10 +242,16 @@ module.exports = function (grunt) {
 
     // Performs rewrites based on filerev and the useminPrepare configuration
     usemin: {
-      html: ['<%= yeoman.dist %>/{,*/}*.html'],
+      html: ['<%= yeoman.dist %>/{,*/}*.html', '<%= yeoman.dist %>/**/*.html'],
+      htmlExtra: ['<%= yeoman.dist %>/{,*/}*.html', '<%= yeoman.dist %>/**/*.html'],
       css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
       options: {
-        assetsDirs: ['<%= yeoman.dist %>','<%= yeoman.dist %>/images']
+        assetsDirs: ['<%= yeoman.dist %>','<%= yeoman.dist %>/images'],
+        patterns:{
+          htmlExtra:[
+              [/<img[^\>]*[^\>\S]+ng-src=['"]([^'"\)#]+)(#.+)?["']/gm, 'Replacing urls in image maps']
+          ]
+        }
       }
     },
 
