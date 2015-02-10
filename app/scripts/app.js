@@ -42,7 +42,8 @@ angular
     short_desc: 'My findings and ramblings about tech',
     canonical_url: 'http://phaninder.com/posts',
     short_url: 'http://phaninder.com/posts',
-    twt_handler: 'PhaniPasupula'
+    twt_handler: 'PhaniPasupula',
+    resume_url: 'https://googledrive.com/host/0B_DFnKM8QzGsRlQtOGk4RGk3UzA/Resume.pdf'
 })
 
 .run(function($log, $window, $rootScope, $location, $state, _, auth, RESTapi, staticURL, FBAppId, pageInfo) {
@@ -160,6 +161,16 @@ angular
             resolve: {
                 id: function() {
                     return 'contact';
+                }
+            }
+        })
+        .state('portfolio', {
+            url: '/portfolio',
+            templateUrl: 'views/post.html',
+            controller: 'PostCtrl',
+            resolve: {
+                id: function() {
+                    return 'portfolio';
                 }
             }
         })
