@@ -102,11 +102,6 @@ header h2 {
     opacity: 0.6;
     color: #1D78BD;
 }
-.profile {
-    left: -90px;
-    margin-top: 30px;
-    margin-left: -400px;
-}
 .profile a {
     text-decoration: none;
     padding: 0 !important;
@@ -116,10 +111,6 @@ header h2 {
 }
 .profile a span img, .profile a span i {
     vertical-align: middle;
-}
-.right-nav {
-    float: right;
-    position: relative;
 }
 form #post-search-input {
     background: #fff url("../../../images/search_icon5.png") no-repeat 5px 5px;
@@ -401,6 +392,15 @@ textarea {
     .post-edit img, .posts img {
         height: 200px;
     }
+    .profile {
+        left: -90px;
+        margin-top: 30px;
+        margin-left: -400px;
+    }
+    .right-nav {
+        float: right;
+        position: relative;
+    }
 }
 @media all and (max-width: 768px) {
     #site-footer .inline-list li {
@@ -422,6 +422,9 @@ textarea {
     }
     .posts {
         padding-left: 0px!important;
+    }
+    .profile {
+        text-align: center;
     }
 }
 @media all and (min-width: 64.063em) {
