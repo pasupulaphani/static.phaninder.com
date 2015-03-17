@@ -86,7 +86,7 @@
 
         <div ng-include="'views/layout/admin_top.html'" ng-show="user.loggedIn"></div>
         <header class="intro" ng-include="'views/layout/header.html'"></header>
-        <div class="profile right-nav show-for-large-only" ng-show="['/contact', '/contact/', '/about', '/about/'].indexOf(location.path()) !== -1" ng-include="'views/layout/profile_nav.html'"></div>
+        <div class="profile right-nav show-for-large-up" ng-show="['/contact', '/contact/', '/about', '/about/'].indexOf(location.path()) !== -1" ng-include="'views/layout/profile_nav.html'"></div>
         <div class="row notify" ng-include="'views/layout/notify.html'"></div>
 
         <div ui-view=""></div>
