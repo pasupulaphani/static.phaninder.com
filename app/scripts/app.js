@@ -99,11 +99,13 @@ angular
         };
     });
 
-    // default to posts
-    $urlRouterProvider.when('/', '/posts');
-
     // go easy on trailing slash
     $urlMatcherFactoryProvider.strictMode(false);
+
+    // default to posts
+    $urlRouterProvider.when('/', '/posts');
+    $urlRouterProvider.when('/portfolio', '/portfolio/projects');
+    $urlRouterProvider.when('/portfolio/', '/portfolio/projects');
 
     $stateProvider
         .state('login', {
@@ -165,12 +167,12 @@ angular
             }
         })
         .state('portfolio', {
-            url: '/portfolio',
-            templateUrl: 'views/post.html',
+            url: '/portfolio/{id}',
+            templateUrl: 'views/portfolio.html',
             controller: 'PostCtrl',
             resolve: {
-                id: function() {
-                    return 'portfolio';
+                id: function($stateParams) {
+                    return 'portfolio-' + $stateParams.id;
                 }
             }
         })

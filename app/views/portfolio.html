@@ -1,0 +1,42 @@
+<!-- <div class="row">
+    <section role="main">
+        <ul class="button-group even-2">
+            <li class="bg1 bg1-left"><a href="#" class="button secondary">Button 1</a>
+            </li>
+            <li class="bg1 bg1-right"><a href="#" class="button secondary">Button 2</a>
+            </li>
+        </ul>
+    </section>
+</div>
+ -->
+
+<br>
+<div class="row">
+    <section role="main">
+        <div class="row post">
+            <ul class="large-10 small-12 columns button-group even-2">
+                <li class="">
+                    <a href="/portfolio/projects" class="button small radius secondary" ng-class="{info: ['/portfolio/projects', '/portfolio/projects/'].indexOf(location.path()) !== -1}">Projects</a>
+                </li>
+                <li class="">
+                    <a href="/portfolio/other-activities" class="button small radius secondary" ng-class="{info: ['/portfolio/other-activities', '/portfolio/other-activities/'].indexOf(location.path()) !== -1}">Other activities</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
+
+<div class="row" ng-repeat="post in posts | limitTo:1">
+    <section role="main">
+        <div class="row post">
+            <div class="large-10 small-12 columns">
+                <h1>{{post.title}}</h1>
+                <p></p>
+                <div id="post-body" compile-gist-embed ng-bind-html="post.body"></div>
+                <br />
+                <span>{{post.created | date:'fullDate'}}</span>
+                <p></p>
+            </div>
+        </div>
+    </section>
+</div>

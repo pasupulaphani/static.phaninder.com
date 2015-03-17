@@ -659,3 +659,47 @@ dt.h5 {
     }
     /* @iPhone */
 }
+
+// debugging bg menu
+.bg1-left {
+    border-top: 3em solid #474747;
+    border-right: 2em solid transparent;
+}
+
+.bg1-right {
+    border-bottom:3em solid #C8344C;
+    border-left:2em solid transparent
+}
+.bg1 {
+    height:0;
+    width:100%;
+    padding-left:0.5em;
+    color:white;
+    overflow:visible
+}
+.bg {
+    height:0;
+    width:100%;
+    padding-left:0.5em;
+    color:white;
+    overflow:visible
+}
+.bg {
+    border-bottom:3em solid #C8344C;
+    border-left:2em solid transparent
+}
+.bg div {
+    padding-top:10px
+}
+
+.hbg {
+    border-top:3.5em solid #474747;
+    border-right:2.5em solid transparent;
+    padding-left:1.5em;
+    margin-bottom:1em;
+    min-width:280px
+}
+.hbg h3 {
+    margin-top:-1.7em;
+    white-space:nowrap
+}
